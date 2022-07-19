@@ -1,0 +1,180 @@
+\subsection{A Bernstein-von Mises theorem for ACDC}\label{sec:large_n_theory}
+In the Bayesian ABC framework, Condition \ref{cond:ACC_interval} holds as $n\rightarrow\infty$ %and 
+by selecting a $\veps_n$ that decreases to zero at a certain rate.
+%, according to a Bernstein-von Mises type of convergence for $\pi_{\veps}(\theta\mid s_{\rm obs})$ 
+\cite[]{Li2016}. We now verify Condition \ref{cond:ACC_interval} holds more generally for 
+%$Q_{\veps}(\theta \mid s_{obs})$ from 
+ACDC methods that use a  data-dependent $r_{n}(\theta)$, in a large sample setting. The results presented here are generalizations of results in 
+%based on the same set of conditions as those in
+\cite{Li2017} and \cite{Li2016}. %which are given in Section 12 of the appendix. 
+Roughly speaking, the next theorem establishes that the distribution of a centered random draw from $Q_{\veps}(\theta \mid s_{obs})$
+%$\Pi_{\veps}(\theta \mid s_{\rm obs})$ 
+and the distribution of its centered expectation (before the data is observed), i.e. $\int \btheta  \, d Q_{\veps}(\theta\mid S_n)$, are asymptotically the same. %Therefore, following the development in Section~\ref{sec:thms}, confidence regions with asymptotically correct coverage can be constructed using a sample from $\Pi_{\veps}(\theta \mid s_{obs})$. 
+
+
+The next condition concerns the asymptotic behavior of the summary statistic is crucial for the proofs of the theorems in this section (see Appendix \ref{Appendix:Thm2and3}). 
+
+\begin{condition} \label{sum_conv}
+{\it There exists a sequence $\{a_{n}\}$, satisfying $a_{n}\rightarrow\infty$
+		as $n\rightarrow\infty$, a $d$-dimensional vector $s(\btheta)$, a $d\times d$ matrix $A(\btheta)$, and some $\delta_0>0$ such that for $S_{n}\sim f_{n}(\cdot\mid\theta)$
+		and all $\btheta\in\mathcal{P}_{0} %$ with $\mathcal{P}_{0} 
+\stackrel{\hbox{\tiny def}} =  \{ \btheta : \|\btheta-\btheta_{0}\| < \delta_0\} \subset \mathcal{P}$, 
+		\[
+		a_{n}\{\bS_{n}-s(\btheta)\} \stackrel{\hbox{\tiny d}} \rightarrow N\{0,A(\btheta)\},\mbox{ as \ensuremath{n\rightarrow\infty}},
+		\]
+and $\bs_{\rm obs} \stackrel{\hbox{\tiny P}} \rightarrow  s(\btheta_{0})$.
+Furthermore, assume that 
+
+\noindent (i) $s(\btheta), A(\btheta)\in C^{1}(\mathcal{P}_{0})$, $A(\btheta)$ is
+		positive definite for all $\theta$; %$\btheta\in\mathcal{P}_{0}$, and $A(\theta)$ is bounded in ${\cal P}$;
+
+\noindent (ii) for any $\delta>0$ there
+		exists a $\delta'>0$ such that $\|s(\btheta)-s(\btheta_{0})\|>\delta'$
+		for all $\btheta$ such that $\|\btheta-\btheta_{0}\|>\delta$; and
+		
+\noindent (iii) $I(\theta)  \stackrel{\hbox{\tiny def}} = \left\{ \frac{\partial}{\partial\theta}s(\theta)\right\} ^{T}A(\theta)^{-1}\left\{ \frac{\partial}{\partial\theta}s(\theta)\right\} $
+has full rank at $\btheta=\btheta_{0}$.}
+\end{condition}
+
+This is a standard condition but, notably, does not depend on the sufficiency of this statistic. Because of this, we refrain from discussing this condition further so we may instead focus on our main contribution, the development of the following regulatory conditions on $r_{n}(\theta)$.  
+	
+\begin{condition} \label{par_true}
+{\it %There exists some $\delta_0 > 0$ such that $\mathcal{P}_{\delta_0} = \{\theta: \| \theta-\theta_0\|  < \delta_0  \} \subset \mathcal{P},$ 
+For all $\theta \in \mathcal{P}_{0},$ $r_{n}(\theta) \in C^2(\mathcal{P}_{0})$ and $r_{n}(\theta_0)>0$.}
+\end{condition}
+	
+\begin{condition} \label{initial_upper}
+{\it There exists a sequence $\{\tau_{n}\}$ %and $\delta>0$, 
+such that $\tau_{n}=o(a_n)$ and $\sup_{\btheta\in {\cal P}_{0}}\tau_{n}^{-p}r_{n}(\btheta)=O_{p}(1)$.}
+\end{condition}
+	
+\begin{condition} \label{initial_lower}
+{\it There exists constants $m$, $M$ such that $0 < m <\mid \tau_{n}^{-p}r_{n}(\btheta_{0})\mid < M < \infty$.}
+\end{condition}
+	
+\begin{condition} \label{initial_gradient}
+{\it It holds that $\sup_{\btheta\in\mathbb{R}^{p}}\tau_{n}^{-1} D\{\tau_{n}^{-p}r_{n}(\btheta)\}=O_{p}(1)$.}
+\end{condition}
+	
+Condition \ref{par_true} is a general assumption regarding the differentiability of $r_{n}(\theta)$ within an open neighborhood of the true parameter value. Condition \ref{initial_upper} and \ref{initial_lower} essentially require $r_{n}(\theta)$ to be more dispersed than the s-likelihood within a compact set containing $\theta_0$. They require $r_{n}(\theta)$ converge to a point mass more slowly than $f_{n}(\theta \mid s_{\rm obs})$. Condition \ref{initial_gradient} requires the gradient of the standardized version of $r_{n}(\theta)$ to converge with rate $\tau_n$. These are relatively weak conditions and can be satisfied with locally asymptotic $r_{n}(\btheta)$, for example. Of course, a flat prior used in approximate Bayesian inference
+%of Algorithm \ref{alg:rejACC} 
+also satisfies Condition \ref{par_true}--\ref{initial_gradient}. The proofs of %Theorem \ref{thm:ACC_limit_small_bandwidth} 
+the theorems in this section also require additional conditions (Conditions \ref{kernel_prop}-\ref{cond:likelihood_moments} of Appendix \ref{Appendix:Thm2and3}) that are typical of BvM-type theorems. These additional conditions are not presented here for readability reasons and because they do not directly relate to $r_n(\theta)$ which is our emphasis.  
+%Note that, in this theorem, $\hat{\theta}_{s_{obs}} = \hat{\theta}(s_{obs})$
+%whereas $\hat{\theta}_{S}$ is random estimator.
+%%when clear, we shorten the notation of both to $\hat{\theta}$.
+
+
+	
+\begin{thm} \label{thm:ACC_limit_small_bandwidth}
+{\it Let $\hat{\theta}_{S} = \hat{\theta}(S_n) =  \int \btheta  \, d Q_{\veps}(\theta\mid S_n).$ Assume $r_{n}(\btheta)$ satisfies Condition \ref{par_true}--\ref{initial_gradient} above and also  Conditions \ref{kernel_prop}--\ref{cond:likelihood_moments} in the supplementary material. If $\veps_{n}=o(a_{n}^{-1})$ 
+%[should this be $a_n^{-1/2}$?]} 
+as $n\rightarrow\infty$, then Condition \ref{cond:ACC_interval} is satisfied with $V(\btheta,S_n)=a_{n}\left(\btheta-\hat{\theta}_{s_{obs}}\right)$ and $W(\btheta,S_{n})=a_{n}\left(\hat{\theta}_{S}-\btheta\right)$.}
+\end{thm}
+	
+Theorem \ref{thm:ACC_limit_small_bandwidth} says when $\veps_{n}=o(a_{n}^{-1})$, the coverage of $\Gamma_{1-\alpha}(s_{\rm obs})$ is asymptotically correct as $n$ and the number of accepted parameter values increase to infinity. In practice, $\hat{\theta}_{S}$ typically will not have a closed form. To construct $\Gamma_{1-\alpha}(s_{\rm obs})$, the value of $\hat{\theta}$ at $S_n=s_{\rm obs}$ can be estimated using the accepted parameter values from ACDC.
+%observations of the CD random variable. % the sample of $\theta_{\rm ACDC}$. 
+Here Condition \ref{cond:ACC_interval} is satisfied by generalizing the limit distributions of the approximate posterior %$\Pi_{\veps}$ 
+in~\cite{Li2017} so they hold also for $Q_{\veps}(\theta\mid s_{obs})$, when $\veps_n=o(a_n^{-1})$. Specifically, for $A$ defined as in equation (\ref{eq:A}),
+\begin{eqnarray}
+&\sup_{A\in\mathfrak{B}^{p}}\Big| \int_{\{\btheta: \, a_{n}(\btheta-\hat{\theta})\in A\}} d Q_{\veps}(\btheta \mid   \bs_{{\rm obs}})-\qquad \qquad \notag \\
+&\qquad \qquad \qquad \int_{A}N\{t;0,I(\btheta_{0})^{-1}\}\,dt \Big| \stackrel{\hbox{\tiny P}} \rightarrow 0 
+\end{eqnarray}\label{thm2_uncertainty}
+and 
+\begin{equation}
+a_{n}(\hat{\theta}-\btheta_{0}) \stackrel{\hbox{\tiny d}} \rightarrow N\{0,I(\btheta_{0})^{-1}\}, \label{thm2_ptestimate}
+\end{equation}
+%in distribution, 
+as $n\rightarrow\infty$, where $I(\theta_0)$ is a non-singular matrix defined in Condition \ref{sum_conv}. Thus inference based on $Q_{\veps}(\theta \mid s_{obs})$ is valid for $n \rightarrow \infty$ regardless of whether or not $r_{n}(\theta)$ depends on the data. For the same tolerance level, Theorem \ref{thm:ACC_limit_small_bandwidth} asserts that the limiting distribution of $Q_{\veps}(\theta \mid S_n)$ matches the limiting distribution of the approximate posterior from \cite{Li2017} which is the output distribution of the accept-reject version of ABC. %approximate Bayesian computation. %$\Pi_{\veps}$ and $Q_{\veps}$ share the same limit distribution. 
+In comparison however, Algorithm \ref{alg:rejACC} has a better acceptance rate since the data-dependent $r_{n}(\theta)$ will concentrate more probability mass around $\theta_0$ than a typical prior. %and is therefore more efficient.
+
+
+Although inference from ACDC is validated with $\veps_n=o(a_n^{-1})$, a well-known issue in approximate Bayesian literature is that this tolerance level is too small in practice, causing the acceptance rate to degenerate 
+%causes the degeneracy of acceptance rate of any proposal distribution 
+as $n \rightarrow \infty$ for any proposal distribution~\cite[]{Li2016}. Obviously ACDC methods will suffer from this same issue. (For an example with Normal data, see Appendix \ref{sec:degen_of_AR}.)
+
+One remedy that relaxes the restriction on $\veps_n$  %for both Algorithm \ref{alg:rejACC} and \ref{alg:ISABC} 
+is to post-process the sample from $Q_{\veps}(\theta \mid s_{obs})$ with a regression adjustment\cite[]{beaumont2002}. When the data-generating model is correctly specified, the regression adjusted sample correctly quantifies the CD uncertainty %\ST{the posterior uncertainty} conditional on $\boldsymbol{s}_{\rm obs}$ 
+and yields an accurate point estimate with $\veps_n$ decaying at a rate of $o(a_{n}^{-3/5})$\cite[]{Li2017}. %\cite{frazier2017model} studies the case of misspecified model. Likewise, this regression adjustment can be applied to the sample from $Q_{\veps}(\theta \mid s_{obs})$ in Algorithm \ref{alg:rejACC}. Here we show that it also produces valid inference with a larger $\veps_n$.
+	
+Let $\btheta^{*}=\btheta-\beta_{\veps}(\bs-\bs_{{\rm obs}})$ be the post-processed sample from $Q_{\veps}(\theta \mid s_{obs})$, where $\beta_{\veps}$ is the minimizer from 
+\begin{equation*}
+ \begin{pmatrix}\alpha_{\veps}\\ \beta_{\veps}\end{pmatrix}=
+\underset{\alpha\in\mathbb{R}^p,\beta\in\mathbb{R}^{d\times p}}{\arg\min} 
+%{\rm argmin} 
+%{\rm argmin}_{\alpha\in\mathbb{R}^p,\beta\in\mathbb{R}^{d\times p}}
+E_{\veps}\left\{\|\btheta-\alpha-\beta(\bs-\bs_{{\rm obs}})\|^{2}\mid \bs_{{\rm obs}}\right\} 
+\end{equation*}
+for expectation under the joint distribution of accepted $\theta$ values and corresponding summary statistics. %, $Q_{\veps}(\btheta, S_n)$.
+
+\begin{thm}\label{thm:ACC_limit_large_bandwidth}
+{\it Under the conditions of Theorem \ref{thm:ACC_limit_small_bandwidth}, 
+%and Condition \ref{cond:likelihood_moments} of the supplementary materials.m
+if $\veps_{n}=o\left(a_{n}^{-3/5}\right)$ as $n\rightarrow\infty$, Condition \ref{cond:ACC_interval} holds with 
+$V(\btheta,S_n)=a_{n}(\btheta^{*}-\hat{\theta}_{s_{obs}}^*)$ and 
+%$V(\btheta_{\rm ACDC}^{*},\hat{\theta}_{s_{obs}}^*)=a_{n}(\btheta_{\rm ACDC}^{*}-\hat{\theta}_{s_{obs}}^*)$ and 
+$W(\btheta,S_{n})=a_{n}(\hat{\theta}_{S}^*-\btheta)$, 
+%$W(\btheta_0,S_{n})=a_{n}(\hat{\theta}_{S}^*-\btheta_{0})$, 
+where $\hat{\theta}_{S}^{*}$ is the expectation of the post-processed observations of the CD random variable.  }
+%$\btheta_{\rm ACDC}$ values.
+\end{thm}
+		
+Here, Condition \ref{cond:ACC_interval} is implied by the following convergence results (where $A$ defined as in equation (\ref{eq:A})),
+\begin{eqnarray*}
+&\sup_{A\in\mathfrak{B}^{p}}\Big| \int_{\{\btheta: \, a_{n}(\btheta -\hat{\theta}^{*}) \in A\}} d Q_{\veps}^*(\btheta \mid   \bs_{{\rm obs}}) - \qquad \qquad\\ 
+&\qquad \qquad\qquad \qquad\int_{A}N\{t;0,I(\btheta_{0})^{-1}\}\,dt\Big|
+\stackrel{\hbox{\tiny P}} \rightarrow 0,
+\end{eqnarray*}
+and 
+\[a_{n}(\hat{\theta}_{S}^{*}-\btheta_{0}) \stackrel{\hbox{\tiny d}} \rightarrow  N\{0,I(\btheta_{0})^{-1}\}, \]
+as $n\rightarrow\infty$. The limiting distributions above are the same as those in \eqref{thm2_uncertainty} and \eqref{thm2_ptestimate}, therefore $\Gamma_{1-\alpha}(\boldsymbol{s}_{\rm obs})$ constructed using the post-processed sample achieve the same efficiency as those using original ACDC sample of $\theta$ values. The benefit of permitting larger 
+%However, as permitting larger 
+tolerance levels is a huge improvement in the computing costs associated with ACDC. 
+
+
+\subsection{Designing $r_{n}$}\label{sec:rn}
+Condition \ref{initial_upper} implies that in practice, one must take care to choose $r_{n}(\theta)$ so that its growth with respect to the sample size is slower than the growth of the s-likelihood. In this section we propose a generic algorithm to construct such an $r_{n}(\theta)$ based on sub-setting the observed data. 
+
+Notably, there is a trade-off in ACDC inference between faster computations and guaranteed coverage of the approximate CD based confidence intervals (or regions). When $r_{n}(\theta)$ grows at a similar rate as the s-likelihood for $n \to \infty$, the computing time for ACDC methods may be reduced but this risks violating Conditions \ref{initial_upper}--\ref{initial_gradient}. If these assumptions are violated, the resulting simulations do not necessarily form a CD and consequently, inference %based on Algorithm \ref{alg:rejACC} 
+may not be valid in terms of producing confidence sets with guaranteed coverage. Therefore, $r_{n}(\theta)$ should be designed such that its convergence rate is bounded away from that of the {\it s-}likelihood. The minibatch scheme presented below is one way to ensure
+$r_n(\theta)$ is approriately bounded. 
+%as in the minibatch scheme described below. 
+
+Assume that a point estimator $\htheta(z)$ of $\theta$ can be computed for a dataset, $z$, of any size. 
+	
+\begin{description}
+\item [\textbf{Minibatch scheme}]  
+\end{description}
+\begin{enumerate}
+	\item Choose $k$ subsets of the observations, each with size $n^{\nu}$ for some $0<\nu<1$. 
+	\item For each subset $z_{i}$ of $x_{\rm obs}$, compute the point estimate $\hat{\theta}_{\text{S},i}=\htheta(z_{i})$, for $i=1,\ldots,k$. 
+	\item Let $r_{n}(\theta)=(1/ kh) \sum_{i=1}^{k}K\left\{h^{-1}\|\theta-\hat{\theta}_{\text{S},i}\|\right\},$ where $h>0$ is the bandwidth of the kernel density  estimate using $\{\hat{\theta}_{\text{S},1},\ldots,\hat{\theta}_{\text{S},k}\}$ and kernel function $K$.
+\end{enumerate}
+
+	
+If $\htheta$ is consistent, then 
+%and converges more slowly than that of the summary statistic, 
+for $\nu<3/5$, $r_{n}(\theta)$ as obtained by this minibatch procedure will satisfy Conditions \ref{initial_upper}--\ref{initial_gradient}. Based on our experience, if $n$ is large one may simply choose $\nu =1/2$ to partition the data. For small $n$, say $n<100$, it is better to select $\nu>1/2$ and to overlap the subsets (or ``mini" batches of the observed data) so that each subset contains a reasonable number of observations. For a given  summary statistic, there are many methods to construct this type of point estimator including:
+%are available for  constructing a point estimator with these properties, including: 
+a minimum distance-based optimizer~\cite[]{Gourieroux1993,mcfadden1989method}, the synthetic likelihood method and its variants~\cite[]{wood2010statistical,fasiolo2018extended}, or accept-reject ACDC %Algorithm \ref{alg:rejACC} 
+with $\hat{\theta}_{S} = E\{\theta\mid S_{n}(z_i)\}$, the s-likelihood-based expectation over a subset of the observed data. The choice of $\htheta$ does not need to be an accurate estimator %of $\theta_0$, 
+since it is only used to construct the initial rough estimate of a CD for $\theta$. But a heavily biased $\htheta$ causes biases in confidence sets derived from the CD, since %the mass of 
+$r_n(\theta)$ does not cover parameter values resulting in high values of $f_n(s\mid\theta)$ very well. In practice, the computing cost 
+%of ACDC methods or IS-ABC methods that incorporate $r_n(\theta)$ 
+%either Algorithm \ref{alg:rejACC} or \ref{alg:ISABC} 
+will depend on which particular optimization scheme is followed. However, a full study on the selection of $\hat{\btheta}_S$ is beyond the scope of this paper. 
+	
+The computational cost associated with implementing  the minibatch scheme is comparable to %not typically any higher than 
+the cost of constructing a proposal distribution for IS-ABC methods.
+%Algorithm \ref{alg:ISABC}. 
+Multiple runs to compute $\hat{\theta}_{\text{S},i}$ values can be parallelized easily and any procedure to obtain a proposal distribution for IS-ABC %Algorithm~\ref{alg:ISABC} 
+can be applied on the mini batches of data to yield a point estimate for $\theta$. For example, for each subset $z_i$, the conditional mean $E\{\theta\mid S_{n}(z_i)\}$ can be estimated by population Monte Carlo ABC %approximate Bayesian computing 
+on $S_{n}(z_i)$. This is not any more computationally expensive than computing the same estimate on the full data. This, together with the fact that accept-reject ACDC accepts more simulations than IS-ABC, 
+%(Algorithm \ref{alg:ISABC}) suggests 
+make ACDC the favorable choice %is preferable 
+in terms of overall computational performance. The numerical examples in Section \ref{sec:ex} support this conclusion.    
+%and it costs similarly or less than that on the full data. Thus the minibatch scheme does not incur any additional computational cost and is recommended. 
+	
+At this point, our reader may wonder if $\htheta,$ can be computed, why not simply use a non-parametric bootstrap method to construct confidence sets? Although it requires no likelihood evaluation, this method has two significant drawbacks. First, the non-parametric bootstrap method is heavily affected by the quality of $\htheta$. For example, a bootstrapped confidence interval for $\theta$ is based on quantiles of $\htheta$ from simulated data. A poor estimator typically leads to poor performing confidence sets. In contrast, in ACDC methods, $\htheta$ is only used to construct the initial distribution estimate which is then updated by the data. Second, when it is more computationally expensive to obtain $\htheta$ than the summary statistic, the non-parametric bootstrap will be much more costly than ACDC methods since $\htheta$ must be calculated for each pseudo data set. Example \ref{sec:ricker} in the next section illustrates such an example.
+
+ 

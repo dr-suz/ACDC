@@ -1,0 +1,204 @@
+\renewcommand{\pmb}{{}}
+
+\def\toD{\convd}
+\def\towLik{\buildrel{\hbox{\rm w-lik}}\over\longrightarrow}
+\def\toLik{\buildrel{\hbox{\rm lik}}\over\longrightarrow}
+
+
+\def\benu{\begin{enumerate}}
+	\def\eenu{\end{enumerate}}
+\newcommand{\bel}{\begin{eqnarray}\label}
+    \newcommand{\eel}{\end{eqnarray}}
+\newcommand{\bes}{\begin{eqnarray*}}
+	\newcommand{\ees}{\end{eqnarray*}}
+\newcommand{\bei}{\begin{itemize}}
+	\newcommand{\eei}{\end{itemize}}
+
+\def\bess{\bes\small }
+
+\def\argmax{\mathop{\rm arg\, max}}
+\def\argmin{\mathop{\rm arg\, min}}
+\def\real{{\mathbb{R}}}
+\def\R{{\real}}
+\def\Var{\hbox{\rm Var}}
+\def\E{\hbox{\rm E}}						 
+
+\def\eps{\epsilon}
+\def\veps{\varepsilon}
+\def\bhlambda{\pmb{\hat{\lambda}}} 
+\def\bhtheta{\pmb{\hat{\theta}}_{\text{S}}}
+\def\bttheta{\pmb{\tilde{\theta}}_{\text{S}}}
+\def\bhsigma{\pmb{\hat{\sigma}}}
+\def\htheta{\hat{\theta}_{\text{S}}}
+\def\bsob{\pmb{s}_{\rm obs}}
+\def\s{\pmb{s}(\pmb{x})}
+\def\T{\pmb{T}}
+\def\t{\pmb{t}}
+
+\def\r{r_n}								% r_n
+\def\elltil{\tilde{\ell}_n}						% pseudo-log-likelihood
+\def\liktil{\tilde{f}_n}						% pseudo-likelihood
+\def\sqrtn{\sqrt{n}}
+\def\Itil{\tilde{I}}							% info for pseudo-likelihood 
+\def\partUni{\frac{\partial}{\partial \theta_i}}					% first derivative vector
+\def\partBi{\frac{\partial^2}{\partial \theta_i \theta_j}}			% hessian matrix
+\def\partTri{\frac{\partial^3}{\partial \theta_i \theta_j \theta_k}}		% third derivative
+\def\P{{\cal P}}									% parameter space
+
+
+
+\def\bhg{\hangindent=12pt\hangafter=1}
+\def\ib{\par\noindent\bhg{$\bullet$} }
+\def\ibblank{\par\noindent\bhg{\phantom{$\bullet$}} }
+
+
+%%%% Operators
+%\DeclareMathOperator{\tr}{tr}
+
+%%%% Letters
+%%% Bolded, Tilded and Hatted English
+\def\ba{\pmb{a}}
+\def\bb{\pmb{b}}
+\def\bc{\pmb{c}}
+\def\be{\pmb{e}}
+\def\ftil{\widetilde{f}}
+\def\bg{\pmb{g}} \def\ghat{\widehat{g}} \def\gtil{\widetilde{g}}
+\def\th{\widetilde{h}} \def\tth{\widetilde{\widetilde{h}}} \def\hhat{\widehat{h}} \def\bh{\pmb{h}} \def\hbh{\widehat{\bh}}
+\def\bk{\pmb{k}}
+\def\bq{\pmb{q}} \def\hq{\widehat{q}} \def\hbq{\widehat{\bq}}
+\def\br{\pmb{r}} \def\rtil{\widetilde{r}}
+\def\bs{\pmb{s}} \def\hbs{\widehat{\bs}} \def\ts{\widetilde{s}} \def\tbs{\widetilde{\bs}}
+\def\bt{\pmb{t}}
+\def\bu{\pmb{u}} \def\hbu{\widehat{\bu}}
+\def\bv{\pmb{v}} \def\tv{\widetilde{v}} \def\vtil{\widetilde{v}} \def\hbv{\widehat{\bv}}
+\def\bw{\pmb{w}} \def\hw{\widehat{w}} \def\tw{\widetilde{w}} \def\wtil{\widetilde{w}}
+\def\bx{\pmb{x}} \def\xtil{\widetilde{x}} \def\tx{\widetilde{x}}
+\def\by{\pmb{y}} \def\hby{\widehat{\by}} \def\ty{\widetilde{y}} \def\tby{\widetilde{\by}}
+\def\bz{\pmb{z}}
+
+
+\def\tA{\widetilde{A}}
+\def\tB{\widetilde{B}}
+\def\fL{\mathfrak{L}}
+\def\Phat{\widehat{P}}
+\def\Rtil{\widetilde{R}}
+\def\bS{\pmb{S}}
+\def\bT{\pmb{T}}
+\def\tU{\widetilde{U}} \def\hU{\widehat{U}}
+\def\bX{\pmb{X}} \def\Xhat{\widehat{X}} \def\Xtil{\widetilde{X}}
+\def\bY{\pmb{Y}} \def\tbY{\widetilde{\bY}}
+\def\bV{\pmb{V}} \def\Vhat{\widehat{V}} \def\Vtil{\widetilde{V}}
+\def\bW{\pmb{W}}
+\def\bZ{\pmb{Z}} \def\Zhat{\widehat{Z}} \def\Ztil{\widetilde{Z}}
+ 
+
+%%% Bolded, Tilded and Hatted Greek
+\def\balpha{\pmb{\alpha}}
+\def\halpha{\widehat{\alpha}} \def\hbalpha{\widehat{\balpha}} 
+\def\talpha{\widetilde{\alpha}} \def\tbalpha{\widetilde{\balpha}}
+
+\def\bbeta{\pmb{\beta}}
+\def\hbeta{\widehat{\beta}} \def\hbbeta{\widehat{\bbeta}} 
+\def\tbeta{\widetilde{\beta}} \def\tbbeta{\widetilde{\bbeta}}
+
+\def\bchi{\pmb{\chi}}
+
+\def\bdelta{\pmb{\delta}}
+
+\def\bvarepsilon{\pmb{\varepsilon}}
+
+\def\bphi{\pmb{\phi}}
+
+\def\bgamma{\pmb{\gamma}} 
+\def\hgamma{\widehat{\gamma}} \def\hbgamma{\widehat{\bgamma}}
+
+\def\boeta{\pmb{\eta}}
+
+\def\bioeta{\pmb{\ioeta}}
+
+\def\bvarphi{\pmb{\varphi}}
+
+\def\bkappa{\pmb{\kappa}}
+
+\def\blambda{\pmb{\lambda}}
+
+\def\bmu{\pmb{\mu}} \def\hbmu{\widehat{\bmu}}
+\def\hmu{\widehat{\mu}} 
+\def\tmu{\widetilde{\mu}}
+
+\def\bnu{\pmb{\nu}}
+\def\hnu{\widehat{\nu}} \def\hbnu{\widehat{\bnu}} 
+\def\tnu{\widetilde{\nu}} \def\tbnu{\widetilde{\bnu}}
+
+\def\bomega{\pmb{\omega}} \def\homega{\widehat{\omega}} \def\tomega{\widetilde{\omega}}
+
+\def\bpi{\pmb{\pi}}
+\def\tpi{\widetilde{\pi}}
+\def\hpi{\widehat{\pi}}
+
+\def\bPi{\pmb{\Pi}}
+\def\tPi{\widetilde{\Pi}}
+\def\hPi{\widehat{\Pi}}
+
+
+\def\bvartheta{\pmb{\vartheta}}
+
+\def\brho{\pmb{\rho}}
+
+\def\bsigma{\pmb{\sigma}} \def\hbsigma{\widehat{\bsigma}}
+
+\def\btau{\pmb{\tau}} 
+\def\hbtau{\widehat{\btau}} 
+
+\def\bupsilon{\pmb{\upsilon}} 
+
+\def\btheta{\pmb{\theta}}
+% \def\htheta{\widehat{\theta}} 
+\def\hbtheta{\widehat{\btheta}} 
+\def\tbtheta{\widetilde{\btheta}}
+\def\ttheta{\widetilde{\theta}}
+
+
+\def\bomega{\pmb{\omega}}
+\def\tomega{\widetilde{\omega}}
+
+\def\bxi{\pmb{\xi}}
+
+\def\bpsi{\pmb{\psi}}
+
+\def\bzeta{\pmb{\zeta}}
+\def\hzeta{\widehat{\zeta}} \def\hbzeta{\widehat{\bzeta}} 
+\def\tzeta{\widetilde{\zeta}} \def\tbzeta{\widetilde{\bzeta}}
+ 
+%%% Word
+\def\tCov{\widetilde{Cov}}
+\def\tVar{\widetilde{Var}}
+\def\argmax{\mbox{argmax}}
+
+
+%\def\ba{\pmb{a}} \def\ha{\widehat{a}} \def\bha{\widehat{\ba}} \def\ta{\widetilde{a}} \def\tba{\widetilde{\ba}} 
+%\def\bb{\pmb{b}} \def\hb{\widehat{b}} \def\bhb{\widehat{\bb}} \def\tb{\widetilde{b}} \def\tbb{\widetilde{\bb}} 
+%\def\bc{\pmb{c}} \def\hc{\widehat{c}} \def\bhc{\widehat{\bc}} \def\tc{\widetilde{c}} \def\tbc{\widetilde{\bc}} 
+%\def\bd{\pmb{d}} \def\hd{\widehat{d}} \def\bhd{\widehat{\bd}} \def\td{\widetilde{d}} \def\tbd{\widetilde{\bd}} 
+%\def\be{\pmb{e}} \def\he{\widehat{e}} \def\bhe{\widehat{\be}} \def\te{\widetilde{e}} \def\tbe{\widetilde{\be}} 
+%\def\hf{\widehat{f}} \def\tf{\widetilde{f}}  %\def\bf{\pmb{f}}  \def\bhf{\widehat{\bf}} \def\tbf{\widetilde{\bf}}
+%\def\bg{\pmb{g}} \def\hg{\widehat{g}} \def\bhg{\widehat{\bg}} \def\tg{\widetilde{g}} \def\tbg{\widetilde{\bg}} 
+%\def\bh{\pmb{h}} \def\h{\widehat{h}} \def\bhh{\widehat{\bh}} \def\th{\widetilde{h}} \def\tbh{\widetilde{\bh}} 
+%\def\bi{\pmb{i}} \def\hi{\widehat{i}} \def\bhi{\widehat{\bi}} \def\ti{\widetilde{i}} \def\tbi{\widetilde{\bi}} 
+%\def\bj{\pmb{j}} \def\hj{\widehat{j}} \def\bhj{\widehat{\bj}} \def\tj{\widetilde{j}} \def\tbj{\widetilde{\bj}} 
+%\def\bk{\pmb{k}} \def\hk{\widehat{k}} \def\bhk{\widehat{\bk}} \def\tk{\widetilde{k}} \def\tbk{\widetilde{\bk}} 
+%\def\bl{\pmb{l}} \def\hl{\widehat{l}} \def\bhl{\widehat{\bl}} \def\tl{\widetilde{l}} \def\tbl{\widetilde{\bl}} 
+%\def\bm{\pmb{m}} \def\hm{\widehat{m}} \def\bhm{\widehat{\bm}} \def\tm{\widetilde{m}} \def\tbm{\widetilde{\bm}} 
+%\def\bn{\pmb{n}} \def\hn{\widehat{n}} \def\bhn{\widehat{\bn}} \def\tn{\widetilde{n}} \def\tbn{\widetilde{\bn}} 
+%\def\bo{\pmb{o}} \def\ho{\widehat{o}} \def\bho{\widehat{\bo}} \def\tbo{\widetilde{\bo}} %\def\to{\widetilde{}}  
+%\def\bp{\pmb{p}} \def\hp{\widehat{p}} \def\bhp{\widehat{\bp}} \def\tp{\widetilde{p}} \def\tbp{\widetilde{\bp}} 
+%\def\bq{\pmb{q}} \def\h{\widehat{q}} \def\bhq{\widehat{\bq}} \def\tq{\widetilde{q}} \def\tbq{\widetilde{\bq}} 
+%\def\br{\pmb{r}} \def\hr{\widehat{r}} \def\bhr{\widehat{\br}} \def\tr{\widetilde{r}} \def\tbr{\widetilde{\br}} 
+%\def\bs{\pmb{s}} \def\hs{\widehat{s}} \def\bhs{\widehat{\bs}} \def\ts{\widetilde{s}} \def\tbs{\widetilde{\bs}} 
+%\def\bt{\pmb{t}} \def\ht{\widehat{t}} \def\bht{\widehat{\bt}} \def\tt{\widetilde{t}} \def\tbt{\widetilde{\bt}} 
+%\def\bu{\pmb{u}} \def\hu{\widehat{u}} \def\bhu{\widehat{\bu}} \def\tu{\widetilde{u}} \def\tbu{\widetilde{\bu}} 
+%\def\bv{\pmb{v}} \def\hv{\widehat{v}} \def\bhv{\widehat{\bv}} \def\tv{\widetilde{v}} \def\tbv{\widetilde{\bv}} 
+%\def\bw{\pmb{w}} \def\hw{\widehat{w}} \def\bhw{\widehat{\bw}} \def\tw{\widetilde{w}} \def\tbw{\widetilde{\bw}} 
+%\def\bx{\pmb{x}} \def\hx{\widehat{x}} \def\bhx{\widehat{\bx}} \def\tx{\widetilde{x}} \def\tbx{\widetilde{\bx}} 
+%\def\by{\pmb{y}} \def\hy{\widehat{y}} \def\bhy{\widehat{\by}} \def\ty{\widetilde{y}} \def\tby{\widetilde{\by}} 
+%\def\bz{\pmb{z}} \def\hz{\widehat{z}} \def\bhz{\widehat{\bz}} \def\tz{\widetilde{z}} \def\tbz{\widetilde{\bz}} 

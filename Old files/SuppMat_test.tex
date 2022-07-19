@@ -1,0 +1,511 @@
+\documentclass[9pt]{article}
+
+\usepackage{xr} 
+
+
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{multirow}
+
+%\usepackage{algorithmic}
+%\usepackage{algorithm}
+\usepackage{algorithm2e} %better for two column documents 
+
+%%Packages for font
+\usepackage[mathscr]{eucal}
+\usepackage{times}
+
+%%Packages for editing and comments
+\usepackage{color}
+
+\theoremstyle{remark}
+\newtheorem{thm}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{myex}{Example}
+\newtheorem{condition}{Condition}
+
+
+%%Shorthand for symbols used in this paper 
+\input{Symbols_pream.tex}
+
+
+\makeatletter
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+  \typeout{(#1)}
+  \@addtofilelist{#1}
+  \IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+
+\newcommand*{\myexternaldocument}[1]{%
+    \externaldocument{#1}%
+    \addFileDependency{#1.tex}%
+    \addFileDependency{#1.aux}%
+}
+
+\myexternaldocument{0Main-Feb2022}
+
+\newcommand{\ST}[1]{{\color{green}{#1}}}
+
+\title{Title of primary manuscript: supplemental document}
+\author{}  
+
+\begin{document}
+
+\maketitle
+
+
+\section{Notation}
+Let $N(\bx;\bmu,\Sigma)$ be the normal density at $\bx$
+with mean $\bmu$ and variance $\Sigma$, and $\ftil_{n}(\bs\mid\btheta)=N\{\bs;\bs(\btheta),A(\btheta)/a_{n}^{2}\}$, the asymptotic distribution of the summary statistic.
+We define $a_{n,\veps}=a_{n}$ if $\lim_{n\rightarrow\infty}a_{n}\veps_{n}<\infty$
+and $a_{n,\veps}=\veps_{n}^{-1}$ otherwise, and $\ensuremath{c_{\veps}=\lim_{n\rightarrow\infty}a_{n}\veps_{n}}$,
+both of which summarize how $\veps_{n}$ decreases relative to the
+converging rate, $a_{n}$, of $S_{n}$ in Condition \ref{sum_conv} below. Define
+the standardized random variables $W_{n}(S_{n})=a_{n}A(\theta)^{-1/2}\{S_{n}-\eta(\theta)\}$
+and $W_{\rm obs}=a_{n}A(\theta)^{-1/2}\{s_{\rm obs}-\eta(\theta_0)\}$ and $\beta_{0}=I(\theta_0)^{-1}D\eta(\theta_0)^{T}A(\theta_0)^{-1}$ according to Condition \ref{sum_conv} below. 
+
+Let $f_{W_{n}}(w\mid\theta)$ and
+$\ftil_{W_{n}}(w\mid\theta)$ be the density for $W_{n}(S_{n})$ when
+$S_{n}\sim f_{n}(\cdot\mid\theta)$ and $\ftil_n(\cdot\mid\theta)$ respectively.
+Let $B_{\delta}=\{\theta\mid\|\theta-\theta_{0}\|\leq\delta\}$ for
+$\delta>0$. Define the initial density truncated in $B_{\delta}$,
+i.e. $r_{n}(\theta)\mathbb{I}_{\theta\in B_{\delta}}/\int_{B_{\delta}}r_{n}(\theta)\,d\theta$,
+by $r_{\delta}(\theta)$. Let $t(\theta)=a_{n,\veps}(\theta-\theta_{0})$
+and $v(s)=\veps_{n}^{-1}(s - s_{\rm obs})$. For any $A\in\mathscr{B}^{p}$
+where $\mathscr{B}^{p}$ is the Borel sigma-field on $\mathbb{R}^{p}$,
+let $t(A)$ be the set $\{\phi:\phi=t(\theta)\text{ for some }\theta\in A\}$.
+For a non-negative function $h(x)$, integrable in $\mathbb{R}^{l}$,
+denote the normalized function $h(x)/\int_{\mathbb{R}^{l}}h(x)\,dx$
+by $h(x)^{({\rm norm})}$. For a function $h(x)$, denote its gradient
+by $D_{x}h(x)$, and for simplicity, omit $\theta$ from $D_{\theta}$. For a sequence $x_n$, we use the notation $x_n = \Theta(a_n)$ to mean that there exist some constants $m$ and $M$ such that $0<m<\mid x_n/a_n \mid<M<\infty$.
+
+
+\section{Conditions}
+
+\begin{condition} \label{sum_conv}
+	There exists a sequence $a_{n}$, satisfying $a_{n}\rightarrow\infty$
+	as $n\rightarrow\infty$, a $d$-dimensional vector $\eta(\btheta)$
+	and a $d\times d$ matrix $A(\btheta)$, such that for $S_{n}\sim f_{n}(\cdot\mid\theta)$
+	and all $\btheta\in\mathcal{P}_{0}$, 
+	\[
+	a_{n}\{\bS_{n}-\eta(\btheta)\}\rightarrow N\{0,A(\btheta)\},\mbox{ as \ensuremath{n\rightarrow\infty}},
+	\]
+	in distribution. We also assume that $\bs_{\rm obs}\rightarrow\eta(\btheta_{0})$
+	in probability. Furthermore, it holds that (i) $\eta(\btheta)$
+	and $A(\btheta)\in C^{1}(\mathcal{P}_{0})$, and $A(\btheta)$ is
+	positive definite for any $\btheta$; (ii) for any $\delta>0$ there
+	exists a $\delta'>0$ such that $\|\eta(\btheta)-\eta(\btheta_{0})\|>\delta'$
+	for all $\btheta$ satisfying $\|\btheta-\btheta_{0}\|>\delta$; and
+	(iii) $I(\theta)\triangleq\left\{ \frac{\partial}{\partial\theta}\eta(\theta)\right\} ^{T}A^{-1}(\theta)\left\{ \frac{\partial}{\partial\theta}\eta(\theta)\right\} $
+	has full rank at $\btheta=\btheta_{0}$.
+\end{condition}
+
+\begin{condition} \label{kernel_prop}
+	The kernel satisfies (i) $\int vK_{\veps}(v)dv=0$; (ii)$\prod_{k=1}^{l}v_{i_{k}}K_{\veps}(v)dv<\infty$
+	for any coordinates $(v_{i_{1}},\dots,v_{i_{l}})$ of $v$ and $l\leq p+6$;
+	(iii)$K_{\veps}(v)\propto K_{\veps}(\|v\|_{\Lambda}^{2})$ where $\|v\|_{\Lambda}^{2}=v^{T}\Lambda v$
+	and $\Lambda$ is a positive-definite matrix, and $K(v)$ is a decreasing
+	function of $\|v\|_{\Lambda}$; (iv) $K_{\veps}(v)=O(\exp\{-c_{1}\|v\|^{\alpha_{1}}\})$
+	for some $\alpha_{1}>0$ and $c_{1}>0$ as $\|v\|\rightarrow\infty$. 
+\end{condition}
+
+\begin{condition} \label{sum_approx}
+	There exists $\alpha_{n}$ satisfying $\alpha_{n}/a_{n}^{2/5}\rightarrow\infty$
+	and a density $r_{max}(w)$ satisfying Condition \ref{kernel_prop}(ii)--(iii) where $K_{\veps}(v)$
+	is replaced with $r_{max}(w)$, such that $\sup_{\theta\in B_{\delta}}\alpha_{n}\mid f_{W_{n}}(w\mid\theta)-\ftil_{W_{n}}(w\mid\theta)\mid\leq c_{3}r_{max}(w)$
+	for some positive constant $c_{3}$. 
+\end{condition}
+
+\begin{condition} \label{sum_approx_tail}
+	The following statements hold: (i) $r_{max}(w)$ satisfies
+	Condition \ref{kernel_prop}(iv); and (ii) $\sup_{\theta\in B_{\delta}^{C}}\ftil_{W_{n}}(w\mid\theta)=O(e^{-c_{2}\|w\|^{\alpha_{2}}})$
+	as $\|w\|\rightarrow\infty$ for some positive constants $c_{2}$
+	and $\alpha_{2}$, and $A(\theta)$ is bounded in ${\cal P}$. 
+\end{condition}
+
+\begin{condition} \label{cond:likelihood_moments}
+	The first two moments, $\int_{\mathbb{R}^{d}}s\ftil_{n}(s\mid\theta)ds$
+	and $\int_{\mathbb{R}^d}s^{T}s\ftil_{n}(s\mid\theta)ds$, exist. 
+\end{condition}
+
+
+%-----------------------------------------------------------------------------------------------------------
+\section{Proof for Theorem 2}
+
+\noindent Let $\tilde{Q}(\theta\in A\mid s)=\int_{A}r_{\delta}(\theta)\ftil_{n}(s\mid\theta)\,d\theta/\int_{\mathbb{R}^{p}}r_{\delta}(\theta)\ftil_{n}(s\mid\theta)\,d\theta$. 
+
+\begin{lemma}\label{Alemma1} Assume Condition \ref{par_true}--\ref{sum_approx}. If $\veps_{n}=O(a_{n}^{-1})$, for any fixed $\nu\in\mathbb{R}^{d}$
+	and small enough $\delta$, 
+	\[
+	\sup_{A\in\mathfrak{B}^{p}}\left|\tilde{Q}\{a_{n}(\theta-\theta_{0})\in A\mid s_{\rm obs}+\veps_{n}\nu\}-\int_{A}N[t;\beta_{0}\{A(\theta_{0})^{1/2}W_{\rm obs}+c_{\veps}\nu\},I(\theta_{0})^{-1}]dt\right|\rightarrow0,
+	\]
+	in probability as $n\rightarrow\infty$, where $\beta_{0}=I(\theta_{0})^{-1}D\eta(\theta_{0})^{T}A(\theta_{0}^{-1})$.
+\end{lemma}
+{\it Proof of Lemma \ref{Alemma1}:} 
+	With Lemma 1 from ~\cite{Li2017}, it is sufficient to show that 
+	\[
+	\sup_{A\in\mathfrak{B}^{p}}\mid\tilde{Q}\{t(\theta)\in A\mid s_{\rm obs}+\veps_{n}\nu\}-\tilde{\Pi}\{t(\theta)\in A\mid s_{\rm obs}+\veps_{n}\nu\}\mid=o_{P}(1),
+	\]
+	where $\tilde{\Pi}$ denotes the posterior distribution with prior $\pi_{\delta}(\theta)$ and likelihood $\tilde{f}_n(s \mid \theta)$. 
+	%$\tilde{Q}$ using $r_{n}(\theta)$ rather than a prior $\pi(\theta)$ with a density satisfying Condition \ref{par_true}. 
+With the transformation $t=t(\theta)$
+	and $v=v(s)$, the left hand side of the above equation can be written
+	as 
+	\begin{eqnarray}
+	&&\sup_{A\in\mathfrak{B}^{p}}\mid\frac{\int_{A}r_{\delta}(\theta_0+a_{n}^{-1}t)\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)dt}{\int_{\mathbb{R}^{p}}r_{\delta}(\theta_0+a_{n}^{-1}t)\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)dt}-\hfill \\ \notag
+	&&\hspace{3cm}\frac{\int_{A}\pi_{\delta}(\theta_0+a_{n}^{-1}t)\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)dt}{\int_{\mathbb{R}^{p}}\pi_{\delta}(\theta_0+a_{n}^{-1}t)\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)dt}\mid.\label{eq1}
+	\end{eqnarray}
+	For a function $\tau:\mathbb{R}^{p}\rightarrow\mathbb{R},$ define
+	the following auxiliary functions,
+	\begin{eqnarray*}
+		\phi_{1}\{\tau(\theta);n\} & = & \frac{\int_{t(B_{\delta})}|\tau(\theta_0+a_{n}^{-1}t)-\tau(\theta)|\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)\,dt}{\int_{t(B_{\delta})}\tau(\theta_0+a_{n}^{-1}t)\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)\,dt},\\
+		\phi_{2}\{\tau(\theta);n\} & = & \frac{\tau(\theta)\int_{t(B_{\delta})}\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)dt}{\int_{t(B_{\delta})}\tau(\theta_0+a_{n}^{-1}t)\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_{0}+a_{n}^{-1}t)dt}.
+	\end{eqnarray*}
+	Then by adding and subtracting $\phi_{2}\{\tau_{n}^{-p}r_{\delta}(\theta);n\}\phi_{2}\{\pi(\theta);n\}$
+	in the absolute sign of \eqref{eq1}, \eqref{eq1} can be bounded
+	by 
+	\begin{eqnarray*}
+		\phi_{1}\{\tau_{n}^{-p}r_{\delta}(\theta);n\}+\phi_{1}\{\pi(\theta);n\}\phi_{2}\{\tau_{n}^{-p}r_{\delta}(\theta);n\}+\phi_{1}\{\tau_{n}^{-p}r_{\delta}(\theta);n\}\phi_{2}\{\pi(\theta);n\}+\phi_{1}\{\pi(\theta);n\}.
+	\end{eqnarray*}
+	Consider a class of function $\tau(\theta)$ satisfying the following
+	conditions: 
+	
+	(1) There exists a series $\{k_{n}\}$, such that $\sup_{\theta\in\mathcal{P}_{0}}\|k_{n}^{-1}D\tau(\theta)\|<\infty$
+	and $k_{n}=o(a_{n});$ 
+	
+    (2)	$\tau(\theta_{0})>0$ and $\tau(\theta)\in C^{1}(B_{\delta}).$ 
+	
+	
+	By Conditions \ref{par_true}--\ref{initial_gradient}, $\tau_{n}^{-p}r_{\delta}(\theta)$
+	and $\pi_{\delta}(\theta)$ belong to the above class. Then if $\phi_{1}\{\tau(\theta);n\}$
+	is $o_{p}(1)$ and $\phi_{2}\{\tau(\theta);n\}$ is $O_{p}(1)$, \eqref{eq1}
+	is $o_{p}(1)$ and the lemma holds. 
+	
+	First, from the properties of $\tau(\theta)$ mentioned above, there exists an open set $\omega\subset B_{\delta}$
+	such that $\inf_{\theta\in\omega}\tau(\theta)>c_{1}$, for a constant
+	$c_{1}>0$. Then for $\phi_{2}\{\tau(\theta);n\}$, it is bounded
+	by 
+	\[
+	\frac{\tau(\theta)}{c_{1}\int_{t(\omega)}\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_{0}+a_{n}^{-1}t)^{(norm)}dt},
+	\]
+	where $h(x)^{(norm)}$ represents the normalized version of $h(x)$.
+	From equation (7) in the supplementary material of ~\cite{Li2016},
+	$\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)$
+	can be written in the following form, 
+	\begin{eqnarray}
+	a_{n}^{d}\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)=\frac{1}{\|B_{n}(t)\|^{1/2}}N[C_{n}(t)\{A_{n}(t)t-b_{n}\nu-c_{2}\};\theta_0,I_{d}],\label{eq2}
+	%%%%%check out the math here, why the (1/2) in the norm? 
+	\end{eqnarray}
+	where $A_{n}(t)$ is a series of $d\times p$ matrix functions, $\{B_{n}(t)\}$
+	and $\{C_{n}(t)\}$ are a series of $d\times d$ matrix functions,
+	$b_{n}$ converges to a non-negative constant and $c_{2}$ is a constant,
+	and the minimum of absolute eigenvalues of $A_{n}(t)$ and eigenvalues
+	of $B_{n}(t)$ and $C_{n}(t)$ are all bounded and away from $0$.
+	Then for fixed $\nu$, by continuous mapping, \eqref{eq2} is away
+	from zero with probability one. Therefore $\phi_{2}\{\tau(\theta);n\}=O_{P}(1)$.
+	
+	Second, by Taylor expansion, $\tau(\theta_0+a_{n}^{-1}t)=\tau(\theta_0)+a_{n}^{-1}D\tau(\theta_0+e_{t}t)t$,
+	where $\|e_{t}\|\leq a_{n}^{-1}$. Then 
+	\begin{eqnarray}
+	\phi_{1}\{\tau(\theta);n\} & = & \frac{k_{n}\phi_{2}\{\tau(\theta);n\}}{a_{n}\tau(\theta)}\frac{\int_{t(B_{\delta})}|k_{n}^{-1}D\tau(\theta_0+e_{t}t)t|\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)\,dt}{\int_{t(B_{\delta})}\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)\,dt}\nonumber \\
+	& \leq & \frac{k_{n}\phi_{2}\{\tau(\theta);n\}}{a_{n}\tau(\theta)}\sup_{\theta\in B_{\delta}}\|k_{n}^{-1}D\tau(\theta)\|\frac{\int_{t(B_{\delta})}\|t\|a_{n}^{d}\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)dt}{\int_{t(B_{\delta})}a_{n}^{d}\ftil_{n}(s_{{\rm obs}}+\veps_{n}\nu\mid\theta_0+a_{n}^{-1}t)\,dt},\label{eq3}
+	\end{eqnarray}
+	where the inequality holds by the triangle inequality. By the expression
+	\eqref{eq2} and Lemma 7 in the supplementary material of ~\cite{Li2016},
+	the right hand side of \eqref{eq3} is $O_{P}(1)$. Then together
+	with $\phi_{2}\{\tau(\theta);n\}=\Theta_{P}(1)$, $\phi_{1}\{\tau(\theta);n\}=o_{P}(1).$
+	Therefore the Lemma holds.
+	\hfill{$\square$} 
+%-------------
+
+\pagebreak 
+
+Define the joint density of $(\theta,s)$ in Algorithm \ref{alg:rejACC} and its approximation, where the s-likelihood is replaced by its Gaussian
+limit and $r_{n}(\theta)$ by its truncation, by $q_{\veps}(\theta,s)$
+and $\tilde{q}_{\veps}(\theta,s)$. It is easy to see that,
+\begin{align*}
+q_{\veps}(\theta,s) & =\frac{r_{n}(\theta)f_{n}(s|\theta)K_{\veps_{n}}(s-s_{\rm obs})}{\int_{\mathbb{R}^{p}\times\mathbb{R}^{d}}r_{n}(\theta)f_{n}(s|\theta)K_{\veps_{n}}(s-s_{\rm obs})\,d\theta ds},\\
+\tilde{q}_{\veps}(\theta,s) & =\frac{r_{\delta}(\theta)\ftil_{n}(s|\theta)K_{\veps_{n}}(s-s_{\rm obs})}{\int_{\mathbb{R}^{p}\times\mathbb{R}^{d}}r_{\delta}(\theta)\ftil_{n}(s|\theta)K_{\veps_{n}}(s-s_{\rm obs})\,d\theta ds}.
+\end{align*}
+Let $\tilde{Q}_{\veps}(\theta\in A\mid s_{\rm obs})$ be the approximate confidence distribution function equal to $\int_{A}\int_{\mathbb{R}^{d}}\tilde{q}_{\veps}(\theta,s)\,dsd\theta$.
+With the transformation $t=t(\theta)$ and $v=v(s)$, let $$\tilde{q}_{\veps,t\nu}(t,v)=\tau_{n}^{-p}r_{\delta}(\theta_0+a_{n,\veps}^{-1}t)\ftil_{n}(s_{\rm obs}+\veps_{n}\nu\mid\theta_0+a_{n,\veps}^{-1}t)K_{\veps}(\nu)$$
+be the transformed and unnormalized $\tilde{q}_{\veps}(\theta,s)$, and
+$$\tilde{q}_{A,tv}(h)=\int_{A}\int_{\mathbb{R}^{d}}h(t,v)\tilde{q}_{\veps,t\nu}(t,v)\,dvdt$$
+for any function $h(\cdot,\cdot)$ in $\mathbb{R}^{p}\times\mathbb{R}^{d}$.
+Denote the factor of $\tilde{q}_{\veps,t\nu}(t,v)$, $\tau_{n}^{-p}r_{\delta}(\theta_0+a_{n,\veps}^{-1}t)$,
+by $\gamma_{n}(t)$. Let $\gamma=\lim_{n\rightarrow\infty}\tau_{n}^{-p}r_{\delta}(\theta)$
+and $\gamma(t)=\lim_{n\rightarrow\infty}\tau_{n}^{-p}r_{\delta}(\theta_0+\tau_{n}^{-1}t)$,
+the limits of $\gamma_{n}(t)$ when $a_{n,\veps}=a_{n}$ and
+$a_{n,\veps}=\tau_{n}$ respectively. By Condition \ref{initial_upper} and \ref{initial_lower},
+$\gamma(t)$ exists and $\gamma$ is non-zero with positive probability.
+
+
+Next several functions of $t$ and $v$ defined in ~\cite[proofs for Section 3.1]{Li2017}
+and relate to the limit of $\tilde{q}_{\veps,t\nu}(t,v)$ are used, including
+$g(v;A,B,c)$, $g_{n}(t,v)$, $G_{n}(v)$ and $g_{n}'(t,v)$. 
+
+Furthermore
+several functions defined by integration as following are used: for
+any $A\in\mathfrak{B}^{p}$, let $$g_{A,r}(h)=\int_{\mathbb{R}^{d}}\int_{t(A)}h(t,v)\gamma_{n}(t)g_{n}(t,v)\,dtdv,$$
+$$G_{n,r}(v)=\int_{t(B_{\delta})}\gamma_{n}(t)g_{n}(t,v)\,dt,$$ 
+$$q_{A}(h)=\int_{A}\int_{\mathbb{R}^{d}}h(\theta,s)r_{n}(\theta)f_{n}(s\mid\theta)K_{\veps}(s-s_{\rm obs})\veps_{n}^{-d}\,dsd\theta,$$
+$$\tilde{q}_{A}(h)=\int_{A}\int_{\mathbb{R}^{d}}h(\theta,s)r_{\delta}(\theta)\ftil_{n}(s\mid\theta)K_{\veps}(s-s_{\rm obs})\veps_{n}^{-d}\,dsd\theta,$$
+which generalize those defined in ~\cite[proofs for Section 3.1]{Li2017}
+for the case $r_{n}(\theta)=\pi(\theta)$. 
+
+
+%-------------
+\begin{lemma}\label{Alemma2} Assume Condition \ref{par_true}--\ref{kernel_prop}. If $\veps_{n}=o(a_{n}^{-1/2})$, then 
+	\begin{enumerate}
+		\item[(i)] $\int_{\mathbb{R}^{d}}\int_{t(B_{\delta})}|\tilde{q}_{\veps,t\nu}(t,\nu)-\gamma_{n}(t)g_{n}(t,\nu)|\,dtd\nu=o_{p}(1)$;
+		\item[(ii)] $g_{B_{\delta},r}(1)=\Theta_{P}(1);$ 
+		\item[(iii)] $\tilde{q}_{B_{\delta},tv}(t^{k_{1}}v^{k_{2}})/\tilde{q}_{B_{\delta},tv}(1)=g_{B_{\delta},r}(t^{k_{1}}v^{k_{2}})/g_{B_{\delta},r}(1)+O_{P}(a_{n,\veps}^{-1})+O_{P}(a_{n}^{2}\veps_{n}^{4})$
+		for pairs $(k_{1}, k_{2}) = (0,0), (1,0), (1,1), (0,1)$, and $(0,2)$; 
+		\item[(iv)] $\tilde{q}_{B_{\delta}}(1)=\tau_{n}^{p}a_{n,\veps}^{d-p}\left\{ \int_{t(B_{\delta})}\int_{\mathbb{R}^{d}}\gamma_{n}(t)g_{n}(t,\nu)d\tau d\nu+O_{P}(a_{n,\veps}^{-1})+O_{P}(a_{n}^{2}\veps_{n}^{4})\right\} $. 
+	\end{enumerate}\end{lemma}
+{\it Proof of Lemma \ref{Alemma2}:} 
+	These results generalize parts of Lemma 2 in ~\cite{Li2017} (corresponding to items $(i)$ and $(ii)$ above) and Lemma 5 in
+	~\cite{Li2016} (corresponding to items $(iii)$ and $(iv)$ above). 
+	
+	To prove part $(i)$, note that in Lemma 2 of ~\cite{Li2017}  $\gamma_{n}(t)=\pi(\theta_0+a_{n,\veps}^{-1}t)$,
+	and $(i)$ holds by expanding $\tilde{q}_{\veps,t\nu}(t,v)$ according to
+	the proof of Lemma 5 of ~\cite{Li2016}. 
+	For $\gamma_{n}(t)=\tau_{n}^{-p}r_{\delta}(\theta_0+a_{n,\veps}^{-1}t)$ this can be similarly proved by changing the terms involving $\pi(\theta)$ in equations (10) and (11) in the supplements of ~\cite{Li2016}. Equation (10)
+	is replaced by 
+	\[
+	\frac{\gamma_{n}(t)}{\mid A(\theta+a_{n,\veps}^{-1}t)\mid^{1/2}}=\frac{\gamma_{n}(t)}{\mid A(\theta)\mid^{1/2}}+a_{n,\veps}^{-1}\gamma_{n}(t)D\frac{1}{\mid A(\theta+e_{t})\mid^{1/2}}t,
+	\]
+	where $\|e_{\tau}\|\leq\delta$, and this leads to replacing $\pi(\theta_0)\int_{\tau(B_{\delta})\times\mathbb{R}^{d}}g_{n}(t,\nu)dtd\nu$
+	in equation (11) by $\int_{\tau(B_{\delta})\times\mathbb{R}^{d}}\gamma_{n}(t)g_{n}(t,\nu)dtd\nu$.
+	These changes have no effect on the arguments therein since $\sup_{t\in t(B_{\delta})}\gamma_{n}(t)=O_{P}(1)$
+	by Condition \ref{initial_upper}. Therefore $(i)$ holds.
+	
+	For (ii), By Condition \ref{initial_lower} and Lemma 2 of ~\cite{Li2017}, there exists a $\delta'<\delta$
+	such that $\inf_{t\in t(B_{\delta'})}\gamma_{n}(t)=\Theta_{p}(1)$
+	and $\int_{\mathbb{R}^{d}}\int_{t(B_{\delta'})}g_{n}(t,\nu)\,dtdv=\Theta_{p}(1)$.
+	Then since $g_{B_{\delta},r}(1)\geq\inf_{t\in t(B_{\delta'})}\gamma_{n}(t)\int_{\mathbb{R}^{d}}\int_{t(B_{\delta'})}g_{n}(t,\nu)\,dtd\nu$,
+	(ii) holds.
+	
+	For $(iii)$, if $(k_1,k_2)=(1,0)$ then $\tilde{q}_{B_{\delta},tv}(t)/\tilde{q}_{B_{\delta},tv}(1)$
+	can be expanded by following the arguments in the proof of Lemma 5
+	of ~\cite{Li2016}. For the other pairs of $(k_1,k_2)$, $\tilde{q}_{B_{\delta},tv}(t^{k_{1}}v^{k_{2}})/\tilde{q}_{B_{\delta},tv}(1)$,
+	can be expanded similarly as in the proof of Lemma 4 from ~\cite{Li2017}.
+	
+	For $(iv)$, $\gamma_{n}(t)$ plays the same role as $\pi(\theta)$
+	in the proof of Lemma 5 in ~\cite{Li2016}, and the arguments therein
+	can be followed exactly. The term $\tau_{n}^{p}$ is from the definition
+	of $\gamma_{n}(t)$ that $r_{n}(\theta_0+a_{n,\veps}^{-1}t)=\tau_{n}^{p}\gamma_{n}(t)$.
+	\hfill{$\square$} 
+	
+	
+%-------------
+\pagebreak 
+Define the expectation of $\theta$ with distribution $\tilde{Q}_{\veps}(\theta\in A\mid s_{\rm obs})$
+as $\tilde{\theta}_{\veps}$ , and that of the regression adjusted values, $\theta^*$ 
+with density $\tilde{q}_{\veps}(\theta,s)$ as $\tilde{\theta}_{\veps}^{*}$.
+Let $E_{G,r}(\cdot)$ be the expectation with the density $G_{n}(v)^{({\rm norm})}$,
+and $E_{G,r}\{h(v)\}$ can be written as $g_{B_{\delta},r}\{h(v)\}/g_{B_{\delta},r}(1)$.
+Let $\psi(\nu)=k_{n}^{-1}\beta_{0}\{A(\theta_{0})^{1/2}W_{\rm obs}+a_{n}\veps_{n}\nu\}$,
+where $k_{n}=1$, if $c_{\veps}<\infty$, and $a_{n}\veps_{n}$,
+if $c_{\veps}=\infty$. 
+
+%-------------
+\begin{lemma}\label{Alemma3} Assume Condition \ref{par_true}--\ref{initial_gradient} and \ref{kernel_prop}. Then if $\veps_{n}=o(a_{n}^{-1/2})$, 
+	\begin{enumerate}
+		\item[(i)] $\tilde{\theta}_{\veps}=\theta_{0}+a_{n}^{-1}\beta_{0}A(\theta_{0})^{1/2}W_{\rm obs}+\veps_{n}\beta_{0}E_{G_{n},r}(\nu)+r_{1}$,
+		where $r_{1}=o_{P}(a_{n}^{-1})$; 
+		\item[(ii)] $\tilde{\theta}_{\veps}^{*}=\theta_{0}+a_{n}^{-1}\beta_{0}A(\theta_{0})^{1/2}w_{\rm obs}+\veps_{n}(\beta_{0}-\beta_{\veps})E_{G_{n},r}(\nu)+r_{2}$,
+		where $r_{2}=o_{P}(a_{n}^{-1})$. 
+	\end{enumerate}\end{lemma}
+{\it Proof of Lemma \ref{Alemma3}:} 
+	These results generalize Lemma 3(c) and Lemma 5(c) in ~\cite{Li2017} in the sense of permitting use of a data-dependent $r_n(\theta)$, however here we are only considering $\veps_n = o(a_n^{-1/2})$ in contrast to Lemma 5(c) in ~\cite{Li2017} which assumes the less stringent condition that $\veps_n = o(a_n^{-3/5})$.
+	
+	With the transformation $t=t(\theta)$, by Lemma 2, if $\veps_{n}=o(a_{n}^{-1/2})$,
+	\begin{eqnarray}
+	\begin{cases}
+	\tilde{\theta}_{\veps}=\theta_{0}+a_{n,\veps}^{-1}\tilde{q}_{B_{\delta},t\nu}(t)/\tilde{q}_{B_{\delta},t\nu}(1)=\theta_{0}+a_{n,\veps}^{-1}g_{B_{\delta},r}(t)/g_{B_{\delta},r}(1)+o_{p}(a_{n}^{-1}),\\
+	\tilde{\theta}_{\veps}^{x}=\theta_{0}+a_{n,\veps}^{-1}\tilde{q}_{B_{\delta},t\nu}(t)/\tilde{q}_{B_{\delta},t\nu}(1)-\veps_{n}\beta_{\veps}\tilde{q}_{B_{\delta},t\nu}(\nu)/\tilde{q}_{B_{\delta},t\nu}(1)\\
+	\hspace{5mm} =\theta_{0}+a_{n,\veps}^{-1}g_{B_{\delta},r}(t)/g_{B_{\delta},r}(1)-\veps_{n}\beta_{\veps}E_{a_{n},r}(\nu)+o_{p}(a_{n}^{-1}),
+	\end{cases}\label{eq4}
+	\end{eqnarray}
+	where the remainder term comes from the fact that $(a_{n,\veps}^{-1}+\veps_{n})\left\{ O_{p}(a_{n,\veps}^{-1})+O_{p}(a_{n}^{2}\veps_{n}^{4})\right\} =o_{p}(a_{n}^{-1})$.
+	
+	First the leading term of $g_{B_{\delta},r}(t\nu^{k})$ is derived
+	for $k=0$ or $1$. The case of $k=1$ will be used later. Let $t'=t-\psi(\nu)$,
+	then 
+	\begin{align*}
+	g_{B_{\delta},r}(t\nu^{k_{2}}) & =\int_{\mathbb{R}^{d}}\int_{t(B_{\delta})}\{t'+\psi(\nu)\}\nu^{k_{2}}\gamma_{n}(t)g_{n}(t,\nu)\,dtd\nu\\
+	& =\int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n,r}(\nu)\,d\nu+\int_{\mathbb{R}^{d}}\int_{t(B_{\delta})}t'\nu^{k_{2}}\gamma_{n}(t)g_{n}(t,\nu)\,dtd\nu.
+	\end{align*}
+	By matrix algebra, it is straightforward to show that $g_{n}(t,v)=N\{t;\psi(v),k_{n}^{-2}I(\theta_{0})^{-1}\}G_{n}(v)$.
+	Then with the transformation $t'$, we have
+	\begin{align*}
+	& g_{B_{\delta},r}(t\nu^{k_{2}})-\int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n,r}(\nu)\,d\nu\\
+	= & \int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}t'\nu^{k_{2}}\gamma_{n}\{\psi(\nu)+t'\}N\left\{ t';0,k_{n}^{-2}I(\theta_{0})^{-1}\right\} G_{n}(\nu)\,dt'd\nu.
+	\end{align*}
+	By applying the Taylor expansion on $\gamma_{n}\{\psi(\nu)+t'\}$,
+	the right hand side of the above equation is equal to 
+	\begin{eqnarray}
+	&  & \int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}t'N\{t';0,k_{n}^{-2}I(\theta_{0})^{-1}\}\,dt'\cdot\gamma_{n}\{\psi(\nu)\}\nu^{k_{2}}G_{n}(\nu)\,d\nu\nonumber \\
+	&  & +\int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}t'{}^{2}D_{t}\gamma_{n}\{\psi(\nu)+e_{t}\}N\{t';0,k_{n}^{-2}I(\theta_{0})^{-1}\}\,dt'\cdot\nu^{k_{2}}G_{n}(\nu)d\nu\nonumber \\
+	& = & k_{n}^{-1}\int_{\mathbb{R}^{d}}\int_{Q_{v}}t''N\{t'';0,I(\theta_{0})^{-1}\}\,dt''\cdot\gamma_{n}\{\psi(\nu)\}\nu^{k_{2}}G_{n}(\nu)\,d\nu\nonumber \\
+	&  & +k_{n}^{-2}\int_{\mathbb{R}^{d}}\int_{Q_{v}}t''^{2}D_{t}\gamma_{n}\{\psi(\nu)+e_{t}\}N\{t'';0,I(\theta_{0})^{-1}\}\,dt''\cdot\nu^{k_{2}}G_{n}(\nu)\,d\nu,\label{eq5}
+	\end{eqnarray}
+	where $Q_{v}=\left\{ a_{n}(\theta-\theta_{0})-k_{n}\psi(\nu)\mid\theta\in B_{\delta}\right\} $
+	and $t''=k_{n}t'$. 
+	%%%%TO DO: clarify ambiguity in next statement, then move on to Lemma 4 and 5 and proof of Thm 1. 
+	Since $Q_{v}$ can be written as $\left\{ a_{n}(\theta-\theta_{0}-\beta_{0}\veps_{n}\nu)-\beta_{0}A(\theta_{0})^{1/2}W_{\rm obs}\mid\theta\in B_{\delta}\right\} $,
+	\ST{it converges to $\mathbb{R}^{p}$ for any fixed $v$ with probability one}. Then $\int_{Q_{v}}t''N\{t'';0,\tau(\theta_{0})^{-1}\}\,dt''=o_{P}(1)$
+	for fixed $v$, and by the continuous mapping theorem and Condition \ref{initial_upper}, the
+	first term in the right hand side of \eqref{eq5} is of the order
+	$o_{p}(k_{n}^{-1})$. The second term is bounded by 
+	\[
+	k_{n}^{-2}\sup_{t\in\mathbb{R}}\|D_{t}\gamma_{n}(t)\|\int_{\mathbb{R}^{p}}\|t''\|^{2}N\{t'';0,I(\theta_{0}^{-1})\}\,dt''\int_{\mathbb{R}^{d}}\nu^{k_{2}}G_{n}(\nu)\,d\nu,
+	\]
+	which is of the order $O_{p}(k^{-2}\tau_{n}/a_{n,\veps})$ by Condition \ref{initial_gradient}.
+	Therefore 
+	\begin{align}
+	g_{B_{\delta},r}(t\nu^{k_{2}}) & =\int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n}(\nu)d\nu+o_{P}(k_{n}^{-1}).\label{eq6}
+	\end{align}
+	By algebra, $k_{n}=a_{n,\veps}^{-1}a_{n}$, and 
+	\begin{eqnarray}
+	&  & \int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n}(\nu)d\nu\nonumber \\
+	& = & a_{n,\veps}\beta_{0}\{a_{n}^{-1}A(\theta_{0})^{1/2}W_{\rm obs}\int_{\mathbb{R}^{d}}\nu^{k_{2}}G_{n,r}(\nu)\,d\nu+\veps_{n}\int_{\mathbb{R}^{d}}\nu^{k_{2}+1}G_{n,r}(\nu)\,d\nu\}.\label{eq7}
+	\end{eqnarray}
+	Then ($i$) and ($ii$) in the Lemma holds by plugging the expansion
+	of $g_{B_{\delta},r}(t)$ into \eqref{eq4}.
+	\hfill{$\square$} 
+	
+%-------------	
+\pagebreak 
+\begin{lemma}\label{Alemma3.5} Assume Condition \ref{par_true}, \ref{initial_upper}, \ref{sum_conv}--\ref{sum_approx_tail}. Then as $n\rightarrow\infty$, 
+	\begin{enumerate}
+		\item[(i)] For any $\delta<\delta_{0}$, $r_{B_{\delta}^{c}}(1)$ and $\tilde{q}_{B_{\delta}^{c}}(1)$
+		are $o_{p}(\tau_{n}^{p})$. More specifically, they are of the order
+		$O_{p}\left(\tau_{n}^{p}e^{-a_{n,\veps}^{\alpha_{\delta}}c_{\delta}}\right)$
+		for some positive constants $c_{\delta}$ and $\alpha_{\delta}$ depending
+		on $\delta$.
+		\item[(ii)] $q_{B_{\delta}}(1)=\tilde{q}_{B_{\delta}}(1)\{1+O_{p}(\alpha_{n}^{-1})\}$
+		and $\sup_{A\subset B_{\delta}}|q_{A}(1)-\tilde{q}_{A}(1)|/\tilde{q}_{B_{\delta}}(1)=O_{p}(\alpha_{n}^{-1})$; 
+		\item[(iii)] if $\veps_{n}=o(a_{n}^{-1/2})$, then $\tilde{q}_{B_{\delta}}(1)$ and
+		$r_{B_{\delta}}(1)$ are $\Theta_{P}(\tau_{n}^{p}a_{n,\veps}^{d-p})$,
+		and thus $\tilde{q}_{\mathcal{P}_{0}}(1)$ and $q_{\mathcal{P}_{0}}(1)$
+		are $\Theta_{P}(\tau_{n}^{p}a_{n,\veps}^{d-p})$; 
+		\item[(iv)] if $\veps_{n}=o(a_{n}^{-1/2})$, $\theta_{\veps}=\tilde{\theta}_{\veps}+o_{p}(a_{n,\veps}^{-1}).$
+		If $\veps_{n}=o(a_{n}^{-3/5}),$ $\theta_{\veps}=\tilde{\theta}_{\veps}+o_{P}(a_{n}^{-1}).$
+	\end{enumerate} \end{lemma}
+{\it Proof of Lemma \ref{Alemma3.5}:} 
+	This generalizes Lemma 7 in ~\cite{Li2017}. The arguments therein
+	can be followed exactly, by Condition \ref{initial_upper} and the fact that regarding $\pi(\theta)$,
+	only the condition $\sup_{\theta\in\mathbb{R}^{p}}\pi(\theta)<\infty$
+	is used.
+	\hfill{$\square$} 
+	
+%-------------	
+\begin{lemma}\label{Alemma4} 
+Assume Condition \ref{par_true}, \ref{initial_upper}, \ref{sum_conv}--\ref{sum_approx_tail}. 
+	\begin{enumerate}
+		\item[(i)] For any $\delta<\delta_{0}$, $Q_{\veps}(\theta\in B_{\delta}^{c}\mid s_{\rm obs})$
+		and $\tilde{Q}_{\veps}(\theta\in B_{\delta}^{c}\mid s_{\rm obs})$ are $o_{p}(1)$; 
+		\item[(ii)] There exists some $\delta<\delta_{0}$ such that 
+		\[
+		\sup_{A\in\mathfrak{B}^{p}}|Q_{\veps}(\theta\in A\cap B_{\delta}\mid s_{\rm obs})-\tilde{Q}_{\veps}(\theta\in A\cap B_{\delta}\mid s_{\rm obs})|=o_{p}(1);
+		\]
+		\item[(iii)] $a_{n,\veps}(\theta_{\veps}-\tilde{\theta}_{\veps})=o_{p}(1)$ . 
+	\end{enumerate}\end{lemma}
+{\it Proof of Lemma \ref{Alemma4}:} 
+	This lemma generalizes Lemma 3 of~\cite{Li2017}. The proof of Lemma 3 in the supplementary material from~\cite{Li2017} only needs Lemma 3 and 5 from~\cite{Li2016} to hold. The result that  $q_{B_{\delta}^{c}}\{h(\theta)\}=O_{p}(\tau_{n}^{p}e^{-a_{n,\veps}^{\alpha_{\delta}}c_{\delta}})$
+	for some positive constants $\alpha_{\delta}$ and $c_{\delta}$, which generalizes the case of $r_{n}(\theta)=\pi(\theta)$ in Lemma 3 of~\cite{Li2016}, holds by Condition \ref{initial_upper}, since the latter only uses the fact that 
+	%$\pi(\theta)$ it only uses the fact that 
+	$\sup_{\theta\in B_{\delta}^{c}}\pi(\theta)<\infty$.
+	Then the arguments in the proof of Lemma 3 in~\cite{Li2016} can be followed exactly, despite the term $\tau_{n}^{p}$ that is not included in the order of $\pi_{B_{\delta}^{c}}\{h(\theta)\}$, since $Q_{\veps}(\theta\in A\mid s_{{\rm obs}})$
+	is the ratio $q_{A}(1)/q_{\mathbb{R}^{p}}(1)$. Since Lemma 5 in~\cite{Li2016} has been generalized by Lemma \eqref{Alemma2} above, the arguments of the proof of Lemma 3 in~\cite{Li2017} can be followed exactly.
+	\hfill{$\square$} \\
+	
+
+%This result generalizes %the case ($i$) of 
+%Proposition 1 in~\cite{Li2017} in the sense of permitting use of a data-dependent $r_n(\theta)$, however for Theorem 1 we need only consider $\veps_n = o(a_n^{-1/2})$.
+With the above lemmas holding for $\veps_n = o(a_n^{-1/2})$, lines for
+proving %case $(i)$ of 
+Proposition 1 in~\cite{Li2017} can be followed  
+exactly to finish the proof of Theorem \ref{thm:ACC_limit_small_bandwidth}. 
+\hfill{$\square$} 
+
+%-----------------------------------------------------------------------------------------------------------
+\pagebreak 
+\section{Proof of Theorem 3}
+
+\begin{lemma}\label{Alemma5} 
+Assume Condition \ref{par_true}--\ref{cond:likelihood_moments}. If $\veps_{n}=o_{p}(a_{n}^{-3/5})$, then $a_{n}\veps_{n}(\beta_{\veps}-\beta_{0})=o(1)$.
+\end{lemma}
+{\it Proof of Lemma \ref{Alemma5}:} 
+	This generalizes Lemma 4 in ~\cite{Li2017} by replacing $\pi(\theta_{0}+a_{n,\veps}^{-1}t)$
+	therein with $\gamma_{n}(t)$. By Condition \ref{initial_upper} and the arguments in the proof
+	of Lemma 4 in ~\cite{Li2017}, it can be shown that 
+	\[
+	\frac{q_{\mathbb{R}^{p}}\{(\theta-\theta_{0})^{k_{1}}(s-s_{\rm obs})^{k_{2}}\}}{q_{\mathbb{R}^{p}}(1)}=a_{n,\veps}^{-k_{1}}\veps_{n}^{-k_{2}}\left\{ \frac{\tilde{q}_{B_{\delta},tv}(t^{k_{1}}\nu^{k_{2}})}{\tilde{q}_{B_{\delta},tv}(1)}+O_{p}(\alpha_{n}^{-1})\right\} .
+	\]
+	Then by Lemma 2 $(iii)$, the right hand side of the above is equal
+	to 
+	\[
+	a_{n,\veps}^{-k_{1}}\veps_{n}^{-k_{2}}\left\{ \frac{g_{B_{\delta},r}(t^{k_{1}}\nu^{k_{2}})}{g_{B_{\delta},r}(1)}+O_{p}(a_{n,\veps}^{-1})+O_{p}(a_{n}^{2}\veps_{n}^{4})+O_{p}(\alpha_{n}^{-1})\right\} .
+	\]
+	Since $\beta_{\veps}=\text{Cov}_{\veps}(\theta,S_{n})\text{Var}_{\veps}(S_{n})^{-1}$,
+	\begin{align*}
+	a_{n}\veps_{n}(\beta_{\veps}-\beta_{0})= & k_{n}\left[\frac{g_{B_{\delta},r}(t\nu)}{g_{B_{\delta},r}(1)}-\frac{g_{B_{\delta},r}(t)g_{B_{\delta},r}(\nu)}{g_{B_{\delta},r}(1)^{2}}+o_{p}(k_{n}^{-1})\right]\cdot\\
+	& \qquad\left[\frac{g_{B_{\delta},r}(\nu\nu^{T})}{g_{B_{\delta},r}(1)}-\frac{g_{B_{\delta},r}(\nu)g_{B_{\delta},r}(\nu)^{T}}{g_{B_{\delta},r}(1)^{2}}+o_{p}(k_{n}^{-1})\right]-a_{n}\veps_{n}\beta_{0},
+	\end{align*}
+	where the equations that $a_{n,\veps}^{-1}k_{n}=o(1)$, $a_{n}^{2}\veps_{n}^{4}k_{n}=o(p)$,
+	and $\alpha_{n}^{-1}k_{n}=o(a_{n}^{-2/5}k_{n})=o(1)$ are used. By
+	algebra, the right hand side of the equation above can be rewritten
+	as 
+	\begin{eqnarray*}
+		&  & \left\{ \frac{g_{B_{\delta},r}\{(k_{n}t-a_{n}\veps_{n}\beta_{0}\nu)\nu\}}{g_{B_{\delta},r}(1)}-\frac{g_{B_{\delta},r}(k_{n}t-a_{n}\veps_{n}\beta_{0}\nu)g_{B_{\delta},r}(\nu)}{g_{B_{\delta},r}(1)^{2}}+o_{p}(1)\right\} \cdot\\
+		&  & \qquad\left\{ E_{G,r}(\nu\nu^{T})-E_{G,r}(\nu)E_{G,r}(\nu)^{T}+o_{p}(k_{n}^{-1})\right\} ^{-1}.
+	\end{eqnarray*}
+	By plugging \eqref{eq6} and \eqref{eq7} in the above, $a_{n}\veps_{n}(\beta_{\veps}-\beta_{0})$
+	is equal to 
+	\begin{eqnarray*}
+		&  & \left\{ E_{G,r}(\nu)\beta_{0}A(\theta_{0})^{1/2}W_{\rm obs}-E_{G,r}(\nu)\beta_{0}A(\theta_{0})^{1/2}W_{\rm obs}+o_{p}(1)\right\} \cdot%\\
+		%&  & \hspace{1cm}
+		\{\text{Var}_{G,r}(\nu)+o_{p}(k_{n}^{-1})\}^{-1}\\
+		&&\hspace{1cm} = o_{P}(1)\{\text{Var}_{G,r}(\nu)+o_{p}(k_{n}^{-1})\}^{-1}.
+	\end{eqnarray*}
+	Since
+	\begin{align*}
+	\text{Var}_{G,r}(\nu) & \geq\frac{\inf_{t\in t(B_{\delta'})}\gamma_{n}(t)}{g_{B_{\delta},r}(1)}\int_{\mathbb{R}^{d}}\int_{t(B_{\delta'})}\{\nu-E_{G,r}(\nu)\}^{2}g_{n}(t,\nu)\,dtd\nu,
+	\end{align*}
+	where $\delta'$ is defined in the proof of Lemma \ref{Alemma2}(ii),
+	we have $\text{Var}_{G,r}(\nu)^{-1}=\Theta_{p}(1)$. Therefore $a_{n}\veps_{n}(\beta_{\veps}-\beta_{0})=o_{p}(1)$.
+	\hfill{$\square$} 
+%-------------
+
+\pagebreak 
+\begin{lemma}\label{Alemma6} Results generalizing Lemma 5 in ~\cite{Li2017},
+	$i.e.$ replacing $\Pi_{\veps}$ and $\tilde{\Pi}_{\veps}$ therein with
+	$Q_{\veps}$ and $\tilde{Q}_{\veps}$, hold. \end{lemma} 
+{\it Proof of Lemma \ref{Alemma6}:} 
+	In ~\cite{Li2017}, the proof of Lemma 5 requires Lemma 4 and 7 in ~\cite{Li2017} to hold. Since we have show that their generalized results hold for $\veps_{n}=o_{p}(a_{n}^{-1/2})$, (see Lemma \ref{Alemma5} and Lemma \ref{Alemma3.5} above),
+    the proof of this lemma for $\veps_{n}=o_{p}(a_{n}^{-3/5})$ follows the same arguments in~\cite{Li2017}, replacing $\pi(\theta)$ with a $r_n(\theta)$ that satisfies conditions \ref{par_true} -- \ref{initial_gradient}.
+	\hfill{$\square$} 
+%-------------
+
+\begin{lemma}\label{Alemma7} \ST{Results generalizing Lemma 10 in ~\cite{Li2017}}
+	hold. \end{lemma}
+{\it Proof of Lemma \ref{Alemma7}:} 
+	The same arguments can be followed.
+	\hfill{$\square$} \\
+%-------------
+
+With all above lemmas, the proof of Theorem \ref{thm:ACC_limit_large_bandwidth} holds by following the same arguments as those in the proof of Theorem 1 in ~\cite{Li2017}.
+	\hfill{$\square$} 
+
+
+
+
+\end{document}

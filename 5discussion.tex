@@ -1,0 +1,46 @@
+
+%In this work, we re-frame the well-studied and useful approximate Bayesian computing method within a frequentist context and justify its performance according to the Repeated Sampling Principle. In doing so, we develop a more general 
+
+In this article, we propose ACDC as a new inference-based approach to likelihood-free methods. It can provide valid frequestist inference for target parameters from data without a tractable likelihood.
+%intractable data-generating models. 
+% like approximate Bayesian computing.
+ACDC can be viewed as an extension of ABC but, crucially, ACDC does not require any Bayesian assumptions nor does the validity of inferential conclusions depend upon the near-sufficiency of the summary statistic. Computationally, an ACDC approach %(Algorithm~\ref{alg:rejACC} 
+is preferable when compared to the corresponding IS-ABC method which suffers from skewed importance weights.%also compared favorably to the corresponding Importance Sampling ABC algorithm (Algorithm~\ref{alg:ISABC}). 
+
+%distribution and as in approximate Bayesian computing.
+%Within a frequentist setting, it makes sense to view the different confidence distributions produced by Algorithm \ref{alg:rejACC} for various choices of summary statistics as different choices of (distribution) estimators for the unknown parameter. Some estimators may preform more efficiently than others (in the sense of avoiding over-coverage), but the validity of inference based on any of these estimators is guaranteed regardless. 
+The main theoretical contribution of this work %relative to the existing literature on approximate Bayesian inference can be stated in two parts. First, we have 
+is the identification of a matching condition (Condition \ref{main1}) necessary for valid frequentist inference from ACDC methods. This condition is similar to the theoretical support for Bootstrap estimation and is met in cases that rely on typical asymptotic arguments (e.g. reference citations in Section \ref{sec:largeSamp}) but also applies to certain small-sample cases.
+%we also present a small extension to a potentially non-asymptotic approach. 
+%Second, we extend the discussion of validating inference from considering an approximate likelihood or posterior distribution to a confidence distribution.  
+Additionally, a key practical contribution of this work %is as follows. That ACDC 
+is the general minibatch method for initializing ACDC estimators.
+This approach guides the search for a well-behaved distribution estimator using a data-dependent distribution $r_{n}(\theta)$. This can result in improved computational performance even compared to an IS-ABC method that is similarly data-driven.
+%to using a prior distribution that does not depend on the data. 
+In cases where $r_{n}(\theta)$ does not yield reasonable acceptance probabilities %for Algorithm \ref{alg:rejACC}, 
+we expect that many of the established techniques used in ABC can be readily adapted to ACDC to further improve its computational performance without sacrificing the frequentist inferential guarantees. 
+
+
+An ACDC approach quantifies the uncertainty in estimation by drawing upon a direct connection to confidence distribution estimators. Different choices of summary statistic yield different approximate CDs, some producing tighter confidence sets than others. However, inference from ACDC is validated, regardless of the sufficiency of $S_n$, provided Condition \ref{cond:ACC_interval} can be established. Within a Bayesian framework, there is no clear way to choose among different posterior approximations associated with %from the same data but 
+different summary statistics. By pivoting to a frequentist perspective, different summary statistics produce different (CD) estimators but all of these estimators are well-behaved in the long run, yielding  valid inferential statements about $\theta$. 
+%we believe the comparison of and search for well-behaved distribution estimators 
+Supported by the theoretical developments and examples in this paper, it appears as though ACDC provides a more parsimonious solution to validating  likelihood-free inference than attempts to reconcile differences among posteriors and their various approximations. % as in the existing literature regarding approximate Bayesian inference. 
+
+
+%We expect that much of the ongoing research improving the computational efficiency of approximate Bayesian computing is applicable to ACDC approaches as well. 
+
+%For example, the likelihood-free Markov chain Monte Carlo method~(\cite{marjoram2003markov}) and the dimension-reduction methods on the summary statistics~(\cite{Fearnhead2012}), among others, can improve Algorithm \ref{alg:rejACC} 
+
+%Furthermore, these variants of Algorithm \ref{alg:rejACC} will be more efficient than the corresponding variants of approximate Bayesian computing, since $r_{n}(\theta)$ will be less dispersed than the prior. 
+	
+%Approximate confidence distribution computing 	even has a potential computational advantage over importance sampling approximate Bayesian computing. %\ST{Sentence about how prior in ABC can cause importance weights to be severely skewed and result in lower acceptance rate and whatnot...} For example, consider the case of IID data from a $N(0,\sigma^2)$ distribution. To apply Algorithm \ref{alg:rejACC}, one may follow the minibatch scheme to define data-dependent distribution function $r_n(\sigma^2)$ with point estimate $\hat{\sigma}^2$, the sample variance of subsets of size $n^\frac{1}{2}$. In comparison to an importance sampling version of approximate Bayesian computing with Jeffrey's prior and using the same $r_n(\sigma^2)$ as the proposal function, although the resulting distributions on the parameter space match for both methods, the acceptance proportion of Algorithm \ref{alg:rejACC} is much higher than that of the approximate Bayesian method. The results of a simulation study for $n=500$ samples from a $N(0, \sigma^2)$ distribution where $\sigma^2_0 = 0.5$ produced \ST{explain results here after running code}.  
+
+
+
+% From introduction: 
+%Under the same tolerance level and with an appropriate choice of data-dependent proposal function, $r_n(\theta)$, $Q_{\veps}$ shares the same limit distribution as the result of approximate Bayesian computing. However, because $r_n(\theta)$ concentrates more probability mass around the target value of $\theta_0$, ACDC is computationally more efficient and will accept more simulations than the Bayesian counterpart. Even when using an importance sampling version of approximate Bayesian computing and choosing proposal to match $r_n(\theta)$, ACDC may still preform better because it assigns equal weights to the output sample whereas importance sampling approximate Bayesian computing (and its variants) may have highly skewed importance weights leading to instability in the search across the parameter space. An example illustrating this can be found in the discussion.%This can especially be an issue for large sample sizes since the importance weight $\pi(\theta) / r_n(\theta)$ is unbounded as$ r_n(\theta)$ peaks. 
+
+
+
+
+
