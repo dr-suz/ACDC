@@ -1,0 +1,21 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdftex 2021.7.6)  12 OCT 2022 11:48
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**2main_theory.tex
+(./2main_theory.tex
+./2main_theory.tex:1: Undefined control sequence.
+l.1 \subsection
+               {General conditions}\label{sec:main}
+? 
+./2main_theory.tex:1: Undefined control sequence.
+l.1 \subsection{General conditions}\label
+                                         {sec:main}
+? 
+./2main_theory.tex:1: Emergency stop.
+l.1 \subsection{General conditions}\label
+                                         {sec:main}
+End of file on the terminal!
+
+./2main_theory.tex:1:  ==> Fatal error occurred, no output PDF file produced!

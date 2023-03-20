@@ -1,0 +1,349 @@
+\begin{thebibliography}{22}
+% BibTex style file: nessart-number.bst, 2021-08-06
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{\textit{#1}}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\textsf{#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{\textit{#1}}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{\textbf{#1}}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{\textit{#1}}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle{}\fi
+\ifx \borganization \undefined \def \borganization #1{#1} \fi
+\ifx \bhowpublished \undefined \def \bhowpublished #1{#1} \fi
+\ifx \bconfdate \undefined \def \bconfdate #1{#1} \fi
+\ifx \botherref \undefined \def \botherref #1{#1} \fi
+\ifx \url \undefined \def \url#1{\textsf{#1}} \fi
+\ifx \bchapter \undefined \def \bchapter{} \fi
+\ifx \bbook \undefined \def \bbook{} \fi
+\ifx \bcomment \undefined \def \bcomment#1{#1} \fi
+\ifx \oauthor \undefined \def \oauthor#1{#1} \fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1} \fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1} \fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}} \fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem{beaumont2002}
+\begin{barticle}
+\bauthor{\bsnm{Beaumont}, \binits{M.~A.}},
+\bauthor{\bsnm{Zhang}, \binits{W.}} \AND
+\bauthor{\bsnm{Balding}, \binits{D.~J.}}
+(\byear{2002}).
+\batitle{Approximate Bayesian Computation in Population Genetics}.
+\bjtitle{Genetics}
+\bvolume{162}(\bissue{4})
+\bfpage{2025}--\blpage{2035}.
+\end{barticle}
+\endbibitem
+
+%%% 2
+\bibitem{Beaumont2019}
+\begin{barticle}
+\bauthor{\bsnm{Beaumont}, \binits{M.~A.}},
+\bauthor{\bsnm{Cornuet}, \binits{J.~q.~M.}},
+\bauthor{\bsnm{Marin}, \binits{J.~q.~M.}} \AND
+\bauthor{\bsnm{Robert}, \binits{C.~P.}}
+(\byear{2009}).
+\batitle{Adaptive approximate {B}ayesian computation}.
+\bjtitle{Biometrika}
+\bvolume{20}(\bissue{10})
+\bfpage{1}--\blpage{9}.
+\end{barticle}
+\endbibitem
+
+%%% 3
+\bibitem{Blum2010}
+\begin{barticle}
+\bauthor{\bsnm{Blum}, \binits{M.~G.}}
+(\byear{2010}).
+\batitle{Approximate Bayesian computation: A nonparametric perspective}.
+\bjtitle{Journal of the American Statistical Association}
+\bvolume{105}(\bissue{491})
+\bfpage{1178}--\blpage{1187}.
+\end{barticle}
+\endbibitem
+
+%%% 4
+\bibitem{Cameron2012}
+\begin{barticle}
+\bauthor{\bsnm{Cameron}, \binits{E.}} \AND
+\bauthor{\bsnm{Pettitt}, \binits{A.~N.}}
+(\byear{2012}).
+\batitle{Approximate Bayesian Computation for astronomical model analysis: A
+  case study in galaxy demographics and morphological transformation at high
+  redshift}.
+\bjtitle{Monthly Notices of the Royal Astronomical Society}
+\bvolume{425}(\bissue{1})
+\bfpage{44}--\blpage{65}.
+\end{barticle}
+\endbibitem
+
+%%% 5
+\bibitem{Cheng1949}
+\begin{barticle}
+\bauthor{\bsnm{Cheng}, \binits{T.~T.}}
+(\byear{1949}).
+\batitle{The normal approximation to the Poisson distribution and a proof of a
+  conjecture of Ramanujan}.
+\bjtitle{Bulletin of the American Mathematical Society}
+\bvolume{55}(\bissue{4})
+\bfpage{396}--\blpage{401}.
+\end{barticle}
+\endbibitem
+
+%%% 6
+\bibitem{Csillery2010}
+\begin{barticle}
+\bauthor{\bsnm{Csill{\'{e}}ry}, \binits{K.}},
+\bauthor{\bsnm{Blum}, \binits{M.~G.~B.}},
+\bauthor{\bsnm{Gaggiotti}, \binits{O.~E.}} \AND
+\bauthor{\bsnm{Fran{\c{c}}ois}, \binits{O.}}
+(\byear{2010}).
+\batitle{Approximate {B}ayesian Computation ({ABC}) in practice}.
+\bjtitle{Trends in Ecology and Evolution}
+\bvolume{25}(\bissue{7})
+\bfpage{410}--\blpage{418}.
+\end{barticle}
+\endbibitem
+
+%%% 7
+\bibitem{fasiolo2018extended}
+\begin{barticle}
+\bauthor{\bsnm{Fasiolo}, \binits{M.}},
+\bauthor{\bsnm{Wood}, \binits{S.~N.}},
+\bauthor{\bsnm{Hartig}, \binits{F.}} \AND
+\bauthor{\bsnm{Bravington}, \binits{M.~V.}}
+(\byear{2018}).
+\batitle{An extended empirical saddlepoint approximation for intractable
+  likelihoods}.
+\bjtitle{Electronic Journal of Statistics}
+\bvolume{12}(\bissue{1})
+\bfpage{1544}--\blpage{1578}.
+\end{barticle}
+\endbibitem
+
+%%% 8
+\bibitem{Gourieroux1993}
+\begin{barticle}
+\bauthor{\bsnm{Gourieroux}, \binits{C.}},
+\bauthor{\bsnm{Monfort}, \binits{A.}} \AND
+\bauthor{\bsnm{Renault}, \binits{E.}}
+(\byear{1993}).
+\batitle{Indirect Inference}.
+\bjtitle{Journal of Applied Econometrics}
+\bvolume{8}(\bissue{S1})
+\bfpage{85}--\blpage{118}.
+\end{barticle}
+\endbibitem
+
+%%% 9
+\bibitem{Li2017}
+\begin{barticle}
+\bauthor{\bsnm{Li}, \binits{W.}} \AND
+\bauthor{\bsnm{Fearnhead}, \binits{P.}}
+(\byear{2018}).
+\batitle{Convergence of regression-adjusted approximate Bayesian computation}.
+\bjtitle{Biometrika}
+\bvolume{105}(\bissue{2})
+\bfpage{301}--\blpage{318}.
+\end{barticle}
+\endbibitem
+
+%%% 10
+\bibitem{Li2016}
+\begin{barticle}
+\bauthor{\bsnm{Li}, \binits{W.}} \AND
+\bauthor{\bsnm{Fearnhead}, \binits{P.}}
+(\byear{2018}).
+\batitle{On the Asymptotic Efficiency of approximate Bayesian computation
+  estimators}.
+\bjtitle{Biometrika}
+\bvolume{105}(\bissue{2})
+\bfpage{286}--\blpage{299}.
+\end{barticle}
+\endbibitem
+
+%%% 11
+\bibitem{Liu1999}
+\begin{barticle}
+\bauthor{\bsnm{Liu}, \binits{R.~Y.}},
+\bauthor{\bsnm{Parelius}, \binits{J.~M.}} \AND
+\bauthor{\bsnm{Singh}, \binits{K.}}
+(\byear{1999}).
+\batitle{Multivariate analysis by data depth: descriptive statistics, graphics
+  and inference (with discussion)}.
+\bjtitle{Annals of Statistics}
+\bvolume{27}
+\bfpage{783}--\blpage{858}.
+\end{barticle}
+\endbibitem
+
+%%% 12
+\bibitem{Marin2011}
+\begin{barticle}
+\bauthor{\bsnm{Marin}, \binits{J.~q.~M.}},
+\bauthor{\bsnm{Pudlo}, \binits{P.}},
+\bauthor{\bsnm{Robert}, \binits{C.~P.}} \AND
+\bauthor{\bsnm{Ryder}, \binits{R.~J.}}
+(\byear{2011}).
+\batitle{Approximate Bayesian Computational methods}.
+\bjtitle{Statistics and Computing}
+\bvolume{22}(\bissue{6})
+\bfpage{1167}--\blpage{1180}.
+\end{barticle}
+\endbibitem
+
+%%% 13
+\bibitem{marjoram2003markov}
+\begin{barticle}
+\bauthor{\bsnm{Marjoram}, \binits{P.}},
+\bauthor{\bsnm{Molitor}, \binits{J.}},
+\bauthor{\bsnm{Plagnol}, \binits{V.}} \AND
+\bauthor{\bsnm{Tavar{\'e}}, \binits{S.}}
+(\byear{2003}).
+\batitle{Markov chain Monte Carlo without likelihoods}.
+\bjtitle{Proceedings of the National Academy of Sciences}
+\bvolume{100}(\bissue{26})
+\bfpage{15324}--\blpage{15328}.
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem{marquette_statistics_2021}
+\begin{bbook}
+\bauthor{\bsnm{Marquette}, \binits{J.~q.~B.}}
+(\byear{2018})
+\bbtitle{Statistics for {Astrophysics}: {Bayesian} {Methodology}}.
+\end{bbook}
+\endbibitem
+
+%%% 15
+\bibitem{mcfadden1989method}
+\begin{botherref}
+\oauthor{\bsnm{McFadden}, \binits{D.}}
+(1989).
+A method of simulated moments for estimation of discrete response models
+  without numerical integration.
+\textit{Econometrica: Journal of the Econometric Society}
+995--1026.
+\end{botherref}
+\endbibitem
+
+%%% 16
+\bibitem{Peters2012}
+\begin{barticle}
+\bauthor{\bsnm{Peters}, \binits{G.~W.}},
+\bauthor{\bsnm{Fan}, \binits{Y.}} \AND
+\bauthor{\bsnm{Sisson}, \binits{S.~A.}}
+(\byear{2012}).
+\batitle{On sequential Monte Carlo partial rejection control approximate
+  Bayesian computation}.
+\bjtitle{Statistical Computing}
+\bvolume{22}
+\bfpage{1209}--\blpage{1222}.
+\end{barticle}
+\endbibitem
+
+%%% 17
+\bibitem{Schweder2016}
+\begin{bbook}
+\bauthor{\bsnm{Schweder}, \binits{T.}} \AND
+\bauthor{\bsnm{Hjort}, \binits{N.~L.}}
+(\byear{2016})
+\bbtitle{Confidence, Likelihood, Prabability}.
+\bpublisher{Cambridge University Press}.
+\end{bbook}
+\endbibitem
+
+%%% 18
+\bibitem{Serfling2002}
+\begin{barticle}
+\bauthor{\bsnm{Serfling}, \binits{R.}}
+(\byear{2002}).
+\batitle{Quantile functions for multivariate analysis: approaches and
+  applications}.
+\bjtitle{Statistica Neerlandica}
+\bvolume{56}(\bissue{2})
+\bfpage{214}--\blpage{232}.
+\end{barticle}
+\endbibitem
+
+%%% 19
+\bibitem{Sisson2007}
+\begin{barticle}
+\bauthor{\bsnm{Sisson}, \binits{S.}},
+\bauthor{\bsnm{Fan}, \binits{Y.}} \AND
+\bauthor{\bsnm{Tanaka}, \binits{M.}}
+(\byear{2007}).
+\batitle{Sequential {M}onte {C}arlo without likelihoods}.
+\bjtitle{Proceedings of the National Academie of Science USA}
+\bvolume{104}
+\bfpage{1760}--\blpage{1765}.
+\end{barticle}
+\endbibitem
+
+%%% 20
+\bibitem{Thornton2022}
+\begin{bchapter}
+\bauthor{\bsnm{Thornton}, \binits{S.}} \AND
+\bauthor{\bsnm{Xie}, \binits{M.}}
+(\byear{2022}).
+\bctitle{Bridging Bayesian, frequentist and fiducial (BFF) inferences using
+  confidence distribution}.
+In \bbtitle{Handbook on Bayesian, Fiducial and Frequentist (BFF) Inferences}
+(\beditor{\binits{J.~O.} \bsnm{Berger}},
+\beditor{\binits{X.~q.~L.} \bsnm{Meng}},
+\beditor{\binits{N.} \bsnm{Reid}} \AND
+\beditor{\binits{M.} \bsnm{Xie}}, eds.)
+\bpublisher{Chapman \& Hall}.
+\bcomment{To appear.}
+\end{bchapter}
+\endbibitem
+
+%%% 21
+\bibitem{wood2010statistical}
+\begin{barticle}
+\bauthor{\bsnm{Wood}, \binits{S.~N.}}
+(\byear{2010}).
+\batitle{Statistical inference for noisy nonlinear ecological dynamic systems}.
+\bjtitle{Nature}
+\bvolume{466}(\bissue{7310})
+\bfpage{1102}.
+\end{barticle}
+\endbibitem
+
+%%% 22
+\bibitem{Xie2013}
+\begin{barticle}
+\bauthor{\bsnm{Xie}, \binits{M.}} \AND
+\bauthor{\bsnm{Singh}, \binits{K.}}
+(\byear{2013}).
+\batitle{Confidence distribution, the frequentist distribution estimator of a
+  parameter: A review}.
+\bjtitle{International Statistical Review}
+\bvolume{81}(\bissue{1})
+\bfpage{3}--\blpage{39}.
+\end{barticle}
+\endbibitem
+
+\end{thebibliography}
