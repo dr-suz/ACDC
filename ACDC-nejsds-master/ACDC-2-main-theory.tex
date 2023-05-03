@@ -1,0 +1,148 @@
+\subsection{General conditions}\label{sec:main} 
+In this section, we formally establish conditions under which ACDC %Algorithm \ref{alg:rejACC} 
+can be used to produce confidence regions with guaranteed frequentist coverages for any significance level. To motivate our main theoretical result, first consider the simple case of a scalar parameter and a function $\htheta = \hat{\theta}(S_n)$ which maps the summary statistic, $S_n \in {\cal{S}}$, into the parameter space $\cal{P}$. 
+	
+\noindent {\it Claim: If 
+	\begin{equation}
+	\label{eq:LR}
+	\text{\rm pr}^*(\theta-\htheta \leq t \mid S_n = s_{\rm obs}) = \text{\rm pr}(\htheta-\theta \leq t \mid \theta = \theta_0),
+	\end{equation}
+then $H_n(t)\stackrel{\hbox{\tiny def}} = 1-Q_{\veps}(2\htheta-t \mid s_{obs})$ is a CD for $\theta$.}
+
+In the claim, $\text{\rm pr}^*(\cdot \mid S_n = s_{\rm obs}) $ refers to the probability measure on the simulation, conditional on the observed summary statistic, and $\text{\rm pr}(\cdot \mid \theta = \theta_{0})$ is the probability measure on the data before it is observed.
+The proof of this claim (provided in the appendix) involves showing that $H_n(\theta_0)$ follows a uniform distribution. Once this is established, any $(1-\alpha)100\%$ level confidence interval for $\theta$ can be found by inverting the confidence distribution, $H_n(t)$. 
+ 
+This claim is conceptually similar to the bootstrap central limit theorem which states (conditions under which) the variability of the bootstrap estimator matches the variability induced by the random sampling procedure. Equation \eqref{eq:LR} instead matches the variability induced by the Monte-Carlo sampling  %of $\theta$ (which are the results of Algorithm \ref{alg:rejACC}) to the 
+to the random sampling variability. 
+%to the variability induced by the random sampling procedure. 
+On the left hand side, $\htheta$ is fixed given $s_{\rm obs}$ and the (conditional) probability measure is defined with respect to the Monte-Carlo copies of $\theta$. Thus $\theta$ on the left hand side of this equation plays the role of a CD random variable. On the right hand side, the probability measure is defined with respect to the sampling variability where $\theta$ is the true parameter value. See also  \cite{Thornton2022} for more discussions of similar matchings to link Monte-Carlo randomness with sample randomness across Bayesian, fiducial and frequentist paradigms. 
+
+
+% Before moving to the main matching condition for ACDC, let's first reflect on the relationship of equation (\ref{eq:A}) to a random sample from $Q_{\veps}(\cdot \mid s_{\rm obs})$. Suppose $\theta'_{i}$, $i = 1, \ldots, m$, are $m$ Monte-Carlo draws from $Q_{\veps}(\cdot \mid s_{\rm obs})$. For ${v}_i =  V(\theta'_{i},  s_{\rm obs})$ we can define $\hat q_{\alpha} = { v}_{[m \alpha]}$, the $[m \alpha]^{th}$ largest element of $\{ v_1, \ldots,  v_m\}$. A $(1-\alpha)100\%$ confidence interval for $\theta=\theta_0$ can be therefore be constructed as $\Gamma_{1 - \alpha}(s_{\rm obs})  = \{ \theta :  \hat q_{\alpha/2}  \leq W(\theta, s_{\rm obs}) \leq \hat q_{1- \alpha/2} \}$ or  $\Gamma_{1 - \alpha}(s_{\rm obs})  = \{ \theta :  W(\theta, s_{\rm obs}) \leq \hat q_{1 - \alpha} \}$.
+
+	
+The main condition necessary for valid frequentist inference from ACDC methods is a generalization of the claim above for vector $\theta$. 
+	\begin{condition} \label{cond:ACC_interval}
+		{\it For $\mathfrak{B}$ a Borel set on $\mathbb{R}^k$,  
+		\begin{eqnarray*}
+	 \sup_{A\in\mathfrak{B}}\big\| \text{\rm pr}^*\{V(\theta, S_n) \in A \mid  {S_n = s_{\rm obs}} \} \quad\quad\qquad\qquad & \\
+		  - \text{\rm pr}\{W( \theta, S_n) \in A \mid {\theta = \theta_0} \}
+		\big\| = o_p(\delta_{n,\veps}), &
+		\end{eqnarray*} 
+		where $\text{\rm pr}^*(\cdot \mid Sn =  s_{\rm obs}) $ refers to the probability measure on the simulation, conditional on the observed summary statistic, and $\text{\rm pr}(\cdot \mid \theta = \theta_{0})$ is the probability measure on the data before it is observed and finally $\delta_{n,\veps}$ is a positive rate of convergence that depends on $n$ and $\veps$. }
+	\end{condition}
+Rather than consider only the linear functions $(\theta-\htheta)$ and $(\htheta-\theta)$, Condition \ref{cond:ACC_interval} considers any functions $V(\theta, S_n)$ and $W( \theta, S_n)$. (For example, the claim above is a special case of Condition \ref{cond:ACC_interval} where $V(t_1, t_2) = - W(t_1, t_2) = t_1 -\hat{\theta}_{S}(t_2)$.) We use the notation $pr^*\{\cdot \mid S_n = s_{obs}\}$  because this probability measure is defined over a transformation of the $\theta \sim Q_{\veps}(\cdot \mid s_{obs}$).  
+
+Furthermore, Condition \ref{cond:ACC_interval} permits the parameter space and the sample space of the summary statistic to be different from each other. In short, a matching condition on the relationship between two general, multi-dimensional mappings, $V$, $W: \P \times {\cal S}  \rightarrow \mathbb{R}^k$ is the key to establishing when ACDC can be used to produce a confidence distribution for $\theta$.
+%Hence, the main condition necessary for Algorithm \ref{alg:rejACC} to produce an estimator called a confidence distribution, is a requirement . 
+	
+%\ST{TO DO: replace the $theta_{ACDC}$s with $\theta'$ and discuss the subtlety of the notation. Also \ST{change all conditioning statements to match the above} 
+
+For a given $s_{\rm obs}$ and $\alpha \in (0,1)$,  we can define a set $A_{1 - \alpha} \subset \mathbb{R}^k$  such that, 
+	\begin{equation}
+	\label{eq:A} 
+	\text{pr}^*\{V(\theta, S_n) \in A_{1 - \alpha} \mid S_n = s_{\rm obs}\} = (1 - \alpha) + o(\delta'), 
+	\end{equation}  
+	where $\delta' > 0$ is a pre-selected small positive precision number, designed to control Monte-Carlo approximation error. If Condition \ref{cond:ACC_interval} holds, then 
+	\begin{equation}
+	\label{eq:AB}
+	\Gamma_{1 - \alpha}(s_{\rm obs}) \stackrel{\hbox{\tiny def}} = \{\theta: W(\theta, s_{\rm obs}) \in A_{1 - \alpha} \} \subset {\cal P}
+	\end{equation}
+is a level $(1 - \alpha) 100\%$ confidence set for $\theta_0$. We summarize this in the following lemma which is proved in the appendix. 
+	
+\begin{lemma}\label{main1}
+{\it Suppose there exist mappings $V$ and $W: \P \times {\cal S} \rightarrow \mathbb{R}^k$ such that Condition \ref{cond:ACC_interval} holds.
+Then, $\text{\rm pr}\{\theta_0 \in \Gamma_{1 - \alpha}(S_n) \mid \theta =  \theta_0 \}  = (1 - \alpha) + o_p(\delta)$, where $\delta = \max\{\delta_{n,\veps},\delta'\}$. If Condition \ref{cond:ACC_interval} holds almost surely, then 
+$\text{\rm pr}\{\theta_0 \in \Gamma_{1 - \alpha}(S_n) \mid \theta = \theta_0 \}  \stackrel{\hbox{\tiny a.s.}}= (1 - \alpha) + o(\delta)$.}
+\end{lemma}
+	
+
+%says, Condition \ref{cond:ACC_interval} implies that $\Gamma_{1-\alpha}(S_{n})$ is a level $(1-\alpha)100\%$ confidence region for $\theta_{0}$. It 
+Nowhere in Lemma \ref{main1} is the sufficiency (or near sufficiency) of $S_{n}$ required. Of course, if the selected summary statistic happens to be sufficient, then inference from the CD with be equivalent to maximum likelihood inference. Furthermore, Lemma \ref{main1} may hold for finite $n$ provided Condition \ref{cond:ACC_interval} does not require $n \rightarrow \infty$, i.e. provided $\delta_{n,\veps}$ only depends on $\veps$. Later in this section we will consider a special case of Lemma \ref{main1} that may be independent of sample-size. 
+
+%As mentioned in the introduction, existing literature about likelihood-free inference typically emphasizes the choice of summary statistic and developing and assessing strategies to choose a useful summary statistic is an active area of research. %(For example \ST{cite sources}) 
+%The emphasis of this article however is establishing guaranteed frequentist properties of $Q_{\veps}(\theta \mid s_{obs})$ for arbitrary summary statistic selection. Of course, if the summary statistic happens to be sufficient, then for an appropriate choice of $r_{n}(\theta)$,  inference based on $Q_{\veps}(\cdot \mid s_{obs})$, is also efficient. 
+	
+In the next sections we explore some specific situations in which Condition \ref{cond:ACC_interval} holds. First however, we relate equation (\ref{eq:A}) to a random sample from $Q_{\veps}(\cdot \mid s_{\rm obs})$ for vector $\theta$. Suppose $\theta'_{i}$, $i = 1, \ldots, m$, are $m$  draws from $Q_{\veps}(\cdot \mid s_{\rm obs})$ and let ${v}_i =  V(\theta'_{i},  s_{\rm obs})$. The set $A_{1 - \alpha}$ may be a $(1-\alpha)100\%$ contour set of $\{{ v}_1, \ldots, { v}_m\}$ such that $o(\delta') = o(m^{-1/2})$. For example, we can directly use $\{ v_1, \ldots, v_m\}$ to construct a  $100(1-\alpha)\%$ depth contour as $A_{1 - \alpha} = \{\theta : (1/m)\sum_{i=1}^{m}\mathbb{I}{\{\hat D({ v}_i)< \hat D(\theta)\}} \geq \alpha\}$, where $\hat D(\cdot)$ is an empirical depth function on~$\P$ computed from the empirical distribution of $\{{ v}_1, \ldots, { v}_m\}$. See, e.g.,~\cite{Serfling2002} and~\cite{Liu1999} for more on the development of data depth and depth contours in nonparametric multivariate analysis.  
+	
+\subsection{Finite sample size case} 
+We now explore a special case of Lemma \ref{main1} where the mappings $V$ and $W$ correspond an approximate pivot statistic. We call  a mapping $T = T(\theta, S_{n})$ from $\P \times {\cal S} \to \mathbb{R}^{d}$  an {\it approximate pivot statistic}, if
+	\begin{equation}\label{eq:apivot}
+	\text{pr}\{T(\theta, S_{n}) \in A \mid \theta = \theta_0\} =  \int_{t \in A}
+	g(t) d t \,  \{1 + o(\delta^{''})\}, 
+	\end{equation}
+where $g(t)$ is a density free of $\theta$, $A \subset \mathbb{R}^{d}$ is any Borel set, and $\delta^{''}$ is either zero or a small number (tending to zero) that may or may not depend on the sample size $n$. For example, suppose $S_n | \theta = \lambda \sim \text{Poisson}(\lambda)$. Then, $T( \lambda, S_{n}) = (S_n -  \lambda)/\sqrt{ \lambda}$ is an approximate pivot when $\lambda$ is large, and the density function is $\phi(t) \{1 + o(\lambda^{-1})\}$, where $\phi(t)$ the density function of the standard normal distribution~\cite[]{Cheng1949}. The usual pivotal cases are special examples of approximate pivots that may not rely on large sample theory. Examples of approximate pivots where $\delta^{''}$ is a function of $n$
+%that do rely on large sample theory
+%include the setting that 
+are discussed later in Section \ref{sec:largeSamp}. 
+
+\noindent
+\begin{thm} \label{thm:pivot} 
+{\it Suppose $T = T(\theta, S_{n})$ is an approximate pivot statistic that is differentiable with respect to the summary statistic and, for given $t$ and $\btheta$,  let $s_{t, \btheta}$ denote a solution to the equation $t = T(\theta, s)$.  If 
+		\begin{equation}\label{eq:req}
+		\hbox{$\int_{\cal{P}}  r_{n}(\theta) K_{ \veps}\left(s_{t, \theta}-s_{\rm obs}\right)   d \theta = C$},
+		\end{equation}
+		where $C$ is a constant free of $t$,
+		then, Condition \ref{cond:ACC_interval} holds almost surely, for $V(\theta, S_n) = W(\theta,S_{n}) = T( \theta, S_{n}).$ }
+\end{thm} 
+
+A direct implication of Theorem \ref{thm:pivot} is that $\Gamma_{1 - \alpha}(s_{\rm obs})$, as defined in~(\ref{eq:AB}), is a level  $(1 - \alpha)100\%$ confidence region where $\text{pr}\{\theta \in \Gamma_{1 - \alpha}(S_n) \mid  \btheta_0 \}  \stackrel{\hbox{\tiny a.s.}} = (1 - \alpha) + o(\delta)$.
+	
+The assumption in equation (\ref{eq:req}) needs to be verified on a case-by-case basis. 
+% For example, consider $T(\theta, S_n)$ as a function of the  $\theta \in \cal{P}$ that generate summary statistics in an $\veps$-ball around $s_{obs}$, say $N_{\veps}(s_{obs})$.  Equation (\ref{eq:req}) will hold if $\int_{\cal P}\{s' \in N_{\veps}(s_{obs})\}r_n(\theta)d\theta >0$ and  if $T(\theta, s')$ is invertible (with respect to $s'$) over $N_{\veps}(s_{obs})$. 
+%\ST{(1)}the probability (under $r_n(\theta)$) that $\theta$ will generate an $s'$ within an $\veps$-ball of $s_{obs}$ is positive and if \ST{(2)}$T(\theta,s')$ is invertible (with respect to $s'$) over this $\veps$-ball of $s_{\rm obs}$. 
+Location and scale families contain natural pivot statistics and satisfy these conditions. This is formally stated in the following corollary. 	
+
+\begin{cor}\label{cor:pivot}
+{\it 
+%Assume $\hat{\mu}_S$ and $\hat{\sigma}_S$ are point estimators for location and scale parameters $\mu$ and $\sigma$. Both $\hat{\mu}_S$ and $\hat{\sigma}_S$ are functions of some $S_n \in \mathbb{R}^d$ for $d$ at least as large as the dimension of the parameter space.
+
+\noindent (a) Suppose $S_n$ is a point estimator for $\mu$ such that $S_n \sim g_1(S_n - \mu)$ and suppose $r_{n}(\mu) \propto 1$. Then, for any $u$,  
+$$|\text{pr}^*(\mu  - S_n  \leq u\mid S_n=s_{obs})-  \text{pr}(S_n  - \mu \leq u \mid \mu= \mu_0)| \stackrel{\hbox{\tiny a.s.}} =  o(1).$$ 
+
+\noindent (b) Suppose $S_n$ is a point estimator for $\sigma$ such that $S_n \sim g_2(S_n/ \sigma )/\sigma$ and suppose $r_{n}(\sigma) \propto 1 / \sigma$. then, for any $v>0$, 
+$$\left|\text{pr}^*\left(\frac{\sigma}{S_n}  \leq v \big| S_n = s_{obs}\right)-  \text{pr}\left(\frac{S_n}{\sigma} \leq v \big| \sigma = \sigma_0 \right) \right| \stackrel{\hbox{\tiny a.s.}} =   o(1).$$
+
+\noindent (c) If $S_{n,1}$ and $S_{n,2}$ are point estimators for $\mu$ and $\sigma$, respectively, where $S_{n,1} \sim g_1\{(S_{n,1} - \mu)/ \sigma \}/\sigma $ and $S_{n,2} \sim g_2\left( S_{n,2}/ \sigma\right)/\sigma$ are independent and if $r_{n}(\mu, \sigma) \propto 1 / \sigma$, then, for any $u$ and any $v > 0$, 
+\bes 
+&\Big|\text{pr}^*\left[\begin{pmatrix}\mu - S_{n,1}  \leq u\\ \frac{\sigma}{S_{n,2}}  \leq v
+\end{pmatrix}
+\big| 
+\begin{pmatrix}
+S_{n,1} \\
+S_{n,2}
+\end{pmatrix} = 
+\begin{pmatrix}
+s_{1,obs} \\
+s_{2, obs}
+\end{pmatrix} \right] \qquad \qquad \\
+&\qquad \qquad - \text{pr}\left[
+\begin{pmatrix}
+\mu - S_{n,1}  \leq u \\
+\frac{S_{n,2}}{\sigma} \leq v 
+\end{pmatrix}
+\big| 
+\begin{pmatrix}
+\mu \\ \sigma 
+\end{pmatrix} =
+\begin{pmatrix}\mu_0\\  \sigma_0\end{pmatrix}
+\right]\Big| \stackrel{\hbox{\tiny a.s.}} =  o(1). 
+\ees
+
+\noindent Consequently, $H_1(S_{n,1}, x) = \int_{-\infty}^{x}g_1(S_{n,1}-u)du $ is a CD for $\mu$  %induced by $\hat{\mu}_S$ 
+and $H_2(S_{n,2}^2,x) = 1 - \int_{0}^{x} g_2(\hat{\sigma}_{S}/u)du,$ is a CD for $\sigma$. % induced by $\hat{\sigma}_S$.
+}
+\end{cor}
+
+	
+Note that Theorem \ref{thm:pivot} and Corollary \ref{cor:pivot} cover some finite sample size scenarios, including the Cauchy example discussed in Section \ref{sec:intro}. For this example, Corollary \ref{cor:pivot} (part (a)) asserts that the different posterior approximations obtained by approximate Bayesian computing with either $S_n = Median(x)$ or $S_n = \bar{x}$ %the sample mean or median as $S_n$, 
+are both CDs. 
+% obtained in the Cauchy example, using either
+That is, both densities in black in Figure \ref{fig:cauchy_loc_ex} are densities for confidence distributions of $\theta$. These distribution estimators  lead to valid frequentist inference 
+%can be utilized in inference problems 
+even though neither summary statistic is sufficient. This development represents a departure from the typical asymptotic arguments for likelihood-free computational inference. 
+	
+	
+This section has considered the case in which the tolerance level, $\veps$, does not necessarily depend on the sample size $n$. In the next section however, the tolerance may depend on the sample size and so we adopt the notation $\veps_n$ to reflect this.
+%as we explore the large sample performance of the proposed approximate confidence distribution computing method in Algorithm \ref{alg:rejACC}.
+	

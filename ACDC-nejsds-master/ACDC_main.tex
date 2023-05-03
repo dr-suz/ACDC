@@ -1,0 +1,167 @@
+\documentclass{nejsds}
+
+\volume{0}
+\issue{0}
+\pubyear{2022}
+\articletype{research-article}
+\doi{0000}
+
+\usepackage{amsmath} 
+\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{multirow}
+
+%\usepackage{algorithmic}
+%\usepackage{algorithm}
+\usepackage{algorithm2e} %better for two column documents 
+
+%%Packages for font
+\usepackage[mathscr]{eucal}
+%\usepackage{times} %% don't use b/c messes with NEJSDS style file 
+
+%%Packages for figures and images
+\usepackage{graphicx} 
+\graphicspath{ {Images/} }
+\usepackage{epstopdf}
+\usepackage{subfig} 
+\usepackage{wrapfig}
+
+%%for tables and their captions
+\usepackage{hypcap}
+
+%%Packages for editing and comments
+\usepackage{color}
+
+\usepackage{subfiles} %enables organizing paper into separate latex files, best loaded last
+
+
+%%Shorthand for symbols used in this paper 
+\input{Symbols_pream.tex}
+
+% \volume{0}
+% \issue{0}
+%\pubyear{2020}
+\articletype{research-article}
+% \doi{0000}
+%% manualy set first/last pages
+%\firstpage{1}
+%\lastpage{4}
+
+\theoremstyle{remark}
+\newtheorem{thm}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{myex}{Example}
+\newtheorem{condition}{Condition}
+
+
+\hyphenation{de-si-de-rium}
+
+\newcommand{\convas}{\stackrel{{\rm a.s}}{\longrightarrow}}
+\newcommand{\convp}{\stackrel{{\rm P}}{\longrightarrow}}
+\newcommand{\convd}{\stackrel{{\rm D}}{\longrightarrow}}
+
+\makeatletter
+\newcommand{\distas}[1]{\mathbin{\overset{#1}{\kern\z@\sim}}}
+\newsavebox{\mybox}\newsavebox{\mysim}
+\newcommand{\distras}[1]{
+	\savebox{\mybox}{\hbox{\kern3pt$\scriptstyle#1$\kern3pt}}
+	\savebox{\mysim}{\hbox{$\sim$}}
+	\mathbin{\overset{#1}{\kern\z@\resizebox{\wd\mybox}{\ht\mysim}{$\sim$}}}}
+\makeatother
+
+\newcommand{\empp}[1]{{\color{red}#1}}
+\newcommand{\Minge}[1]{{\color{magenta}{#1}}}
+\newcommand{\ST}[1]{{\color{green}{#1}}}
+\newcommand{\Wentao}[1]{{\color{blue}{#1}}}
+
+
+
+\begin{document}
+\begin{frontmatter}
+\pretitle{Research Article}
+
+
+\title{Approximate confidence distribution computing}
+
+\begin{aug}
+\author[a]{\inits{S.}\fnms{Suzanne} \snm{Thornton}\thanksref{c1}\ead[label=e1]{sthornt1@swarthmore.edu}}
+\author[b]{\inits{W.}\fnms{Wentao} \snm{Li}\thanksref{f1}\ead[label=e2]{wentao.li@manchester.ac.uk}}
+\author[c]{\inits{M.}\fnms{Minge} \snm{Xie}\thanksref{f1}\ead[label=e3]{mxie@stat.rutgers.edu}}
+\thankstext[type=corresp,id=c1]{Corresponding author.}
+%\thankstext[id=f1]{Simple footnote.}
+\address[a]{Address of the First author, \institution{Swarthmore College}, \cny{U.S.A}.\\ \printead{e1}}
+\address[b]{Address of the Second author, \institution{The University of Manchester}, \cny{U.K.}.\\ \printead{e2}}
+\address[c]{Address of the Third author, \institution{Rutgers, The State University of New Jersey}, \cny{U.S.A}.\\ \printead{e3}} 
+\end{aug}
+
+
+\begin{abstract}
+Approximate confidence distribution computing (ACDC) offers a new take on the rapidly developing field of likelihood-free inference from within a frequentist framework. The appeal of this computational method for statistical inference hinges upon the concept of a {\it confidence distribution}, a special type of estimator which is defined with respect to the repeated sampling principle. An ACDC method provides frequentist validation for computational inference in problems with unknown or intractable likelihoods. The main theoretical contribution of this work is the identification of a matching condition necessary for frequentist validity of inference from this method. In addition to providing an example of how a modern understanding of confidence distribution theory can be used to connect Bayesian and frequentist inferential paradigms, we present a case to expand the current scope of so-called approximate Bayesian inference to include non-Bayesian inference by targeting a confidence distribution rather than a posterior. The main practical contribution of this work is the development of a data-driven approach to drive ACDC in both Bayesian or frequentist contexts.
+The ACDC algorithm is data-driven by the selection of a data-dependent proposal function, the structure of which is quite general and adaptable to many settings. We explore two numerical examples that both verify the theoretical arguments in the development of ACDC and suggest instances in which ACDC outperform approximate Bayesian computing methods computationally. 
+\end{abstract}
+
+\begin{keyword}
+\kwd{Approximate Bayesian inference}
+\kwd{Confidence distribution} 
+\kwd{Computational inference} 
+\end{keyword}
+
+\end{frontmatter}
+	
+\section{Introduction} \label{sec:intro}
+\subfile{ACDC-1-intro}	
+\section{Establishing frequentist guarantees}\label{sec:thms}
+\subfile{ACDC-2-main-theory}	 
+\section{Large sample theory}\label{sec:largeSamp}
+\subfile{ACDC-3-rn}	
+\section{Numerical examples} \label{sec:ex}
+\subfile{ACDC-4-numerical-ex}
+\section{Discussion} \label{sec:discuss}
+\subfile{ACDC-5-discussion}
+
+
+%% Acknowledgements %%
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgement}%[title={Acknowledgments}]
+\end{acknowledgement}
+
+%% Funding %%
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{funding}
+The research is supported in part by research grants from the US National Science Foundation %(DMS151348, 1737857, 1812048). 
+(DMS1812048, DMS2015373 and DMS2027855). 
+This research stems from a chapter of the first author's PhD Thesis. 
+The first author also acknowledges the generous graduate support from Rutgers University.
+\end{funding}
+
+%% Supplementary Material %%
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{esm}
+\esmtitle{Supplementary Material}
+\esmdescription{}
+\esmfilename{}
+\subfile{ACDC-6-supp}
+\end{esm}
+
+%% Appendices %%
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{appendix}
+\section{Appendix section}
+\subfile{ACDC-7-appendix}
+\end{appendix}
+
+
+	
+\bibliographystyle{nessart-number}
+\bibliography{biblio-ACDC}	
+
+
+\end{document}
+
+
+
+
+

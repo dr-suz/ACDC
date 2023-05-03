@@ -1,0 +1,192 @@
+%\section{Example of a confidence distribution}
+%Consider the following example taken from \cite{Singh2007}. Suppose $X_1,\dots,X_n$ is a sample from $N(\mu, \sigma^2)$ where both $\mu$ and $\sigma^2$ are unknown. A confidence distribution for parameter $\mu$ is the function $H_n(y) = F_{t_{(n-1)}}\left\{(y-\bar{X})/(s_{n}/\sqrt{n})  \right\}$ where $F_{t_{(n-1)}}(\cdot)$ is the cumulative distribution function of a Student's t-random variable with $n-1$ degrees of freedom and $\bar{X}$ and $s_n^2$ are the sample mean and variance, respectively. Here  $H_n(y)$ is a cumulative distribution function in the parameter space of $\mu$ from which we can construct confidence intervals of $\mu$ at all levels.  For example, for any $\alpha \in (0,1)$, one sided confidence intervals for $\mu$ are $(\infty, H_n^{-1}(\alpha)]$ and $[H_n^{-1}(\alpha), \infty).$ Similarly, a confidence distribution for parameter $\sigma^2$ is the function $H_n(\sigma^2) = 1 - F_{\chi^2_{n-1}} \left[\{(n-1)s_n^2\}/(\sigma^2) \right],$ where $ F_{\chi^2_{n-1}}(\cdot)$ is the distribution function of a Chi-squared random variable with $n-1$ degrees of freedom. Again, $H_n(\sigma^2)$ is a cumulative distribution function in the parameter space of $\sigma^2$ from which we can construct confidence intervals of $\sigma$ at all levels.  
+	
+%\section{Lemma~\ref{ABClemma}} 
+%\begin{proof} The density of $\pi_{\veps}$ can be expressed by
+%	\begin{align*}
+%	\pi_{\veps}(\theta|s_{\rm obs}) &\propto  \int_{{\cal S} }\pi(\theta)f_n(s\mid\theta) K_{\veps}(s-s_{\rm obs})ds \\
+%	&= \pi(\theta)\int \big\{ f_n(s_{\rm obs}\mid\theta) + Df_n(\bar{s}\mid\theta)^{T}(\bar{s}-s) \\
+%	&\hspace{1.5cm}+ (1/2)(\bar{s} - s)^{T}Hf_n(\bar{s}\mid\theta)(\bar{s}-s)  \big\} K_{\veps}(s-s_{\rm obs})ds\\
+%	&\propto \pi(\theta)f_n(s_{\rm obs}|\theta)+ O(\veps^2),
+%	\end{align*}
+%where $ D f_n(\cdot \mid\theta)$ and $H f_n(\cdot \mid\theta)$ are the vector of first derivatives and matrix of second derivatives of $ f_n(\cdot \mid\theta)$, respectively, and $\bar s$ is a value/vector between $s_{\rm obs}$ and $s_{\rm obs} +  u \veps$.  The equality above holds due to a Taylor expansion of $f_n(\cdot \mid\theta)$ with respect to $s_{\rm obs}$ and the final proportion holds using the substitution  $ u = (s - s_{\rm obs})$ and that $\int_{{\cal S} } K_{\veps}( u)\,d u = 1$ and $\int_{{\cal S} } u K_{\veps}( u)\,d u = 0$.  
+%\end{proof}
+
+	
+\section{Claim in Section 2} 
+\begin{proof} First note that $H_n(t) = 1 - Q_{\veps}(2\hat{\theta}-t \mid S_n = s_{obs})$ is a sample-dependent cumulative distribution function on the parameter space. 
+% Let $pr^*\{\cdot \mid s_{obs} \}$ define the probability space of the Monte Carlo copies of $(\theta - \hat{\theta}_{S})$ for $\theta \sim Q_{\veps}(\cdot \mid s_{obs})$. 
+By equation (\ref{eq:LR}), we denote both sides as $G(t)$, i.e. $G(t) = \text{pr}^*\{ \theta - \hat \theta_S \leq t \mid S_n = s_{obs} \} = \text{pr}\{\hat \theta_S - \theta \leq t \mid  \theta = \theta_0\}$.
+Now we can write $H_n(\theta_0)  
+		= \text{pr}^*(2\htheta - \theta \leq \theta_0 \mid  S_n = s_{\rm obs} )
+		= \text{pr}^*(\theta - \htheta \geq \htheta- \theta_0 \mid  S_n = s_{\rm obs} )
+		= 1 - G(\htheta - \theta_0)$, for $G(t) = \text{pr}(\htheta - \theta \leq t \mid \theta = \theta_0)$. The last equality holds by equation \eqref{eq:LR}. Since $G(\htheta - \theta_0) \mid  \theta_0 \sim Unif(0,1)$ with respect to the sampling variability of $\htheta$, $H_n(\theta_0) = H_n(\theta_0, s_{\rm obs}) \sim Unif(0,1)$. By definition, $H_n(\cdot)$ is a confidence distribution for $\theta$.  
+%Furthermore, $H_n(\cdot)$ can provide us confidence intervals of any level. In particular, we have $H_n(2\htheta- \theta_{\alpha}) = \text{pr}^*(2\theta_{ACDC} - \theta \leq 2\theta- \theta_{\alpha}\mid  s_{\rm obs} )  = 1 - \text{pr}^*(\theta < \theta_{\alpha}\mid    s_{\rm obs} ) = 1 - \alpha$. Since $H_n(t)$ is strictly monotone in $t$, for any $\alpha \in (0,1)$, $\text{pr}\{\theta \leq 2\htheta- \theta_{\alpha}\mid   \theta_0\}=\text{pr}\{H_n(\theta) \leq 1- \alpha \mid  \theta_0\} =1- \alpha$. Therefore, $(- \infty,  2\htheta- \theta_{\alpha}]$ is a $(1-\alpha)$-level confidence interval for $\theta$.
+\end{proof}
+	
+	
+\section{Lemma 1}
+\begin{proof} Following the notation established in the claim of Section 2, first note that 
+\begin{align*}
+&\big| \text{pr}\{\theta \in \Gamma_{1 - \alpha}(S_{n}) | \theta = \theta_0 \}  - (1 - \alpha) \big|  \\
+&= \big| \text{pr}\{W( \theta, S_n) \in A_{1 - \alpha} |  \theta=\theta_0 \}  -  (1 - \alpha) \big|  \\
+&\leq   \big|  \text{pr}^*\{V(\theta, S_n) \in A_{1 - \alpha} | S_n = s_{\rm obs}\} - (1 - \alpha)\big|  \\
+&\qquad +  \big|  \text{pr}\{W( \theta, S_n) \in A_{1 - \alpha} | \theta=  \theta_0 \} \\
+&\qquad - \text{pr}^{*}\{V(\theta, S_n) \in A_{1 - \alpha} |  S_n = s_{\rm obs} \}\big| 
+\end{align*} 
+and by the definition of $A_{1 - \alpha}$ in (4), $\mid \text{pr}^*\{V(\theta, S_n) \in A_{1 - \alpha} \mid  S_n = s_{\rm obs}\} - (1 - \alpha)\mid   = o(\delta')$, almost surely for a pre-selected precision number, $\delta'>0$. Therefore, by Condition \ref{cond:ACC_interval}, we have $\mid  \text{pr}\{\theta \in \Gamma_{1 - \alpha}(S_{n}) \mid  \theta = \theta_0 \} - (1 - \alpha)\mid = \delta$ where $\delta = \max\{\delta_{\veps},\delta'\}$. Furthermore, if Condition \ref{cond:ACC_interval} holds almost surely, then $\mid \text{pr}\{\theta \in \Gamma_{1 - \alpha}(S_{n}) \mid \theta= \theta_0 \} - (1 - \alpha)\mid  = o(\delta)$, almost surely. 
+\end{proof} 
+
+	
+\section{Theorem 1} 
+\begin{proof} If $T=T(\btheta, S_n)$ is an approximate pivot for $S_n$ then 
+\begin{equation}\label{eq:AW}
+		\text{pr}\{T(\btheta, S_{n}) \in A \mid \btheta = \btheta_0\} =  \int_{t \in A}
+		g(t) d t \,  \{1 + o(\delta^{''})\}, 
+\end{equation}
+for any Borel set $A \subset {\cal S} $. Given $\btheta$ and $t$, denote the solution of $t = T( \btheta, s)$ by $s_{t, \theta}$. The density functions $g(t)$ and $f_n(s_{t, \theta}|\btheta)$ are connected by a Jacobian matrix: 
+		\begin{equation}\label{eq:pivotTransformation}
+		f_n(s_{t, \theta}|\btheta) |T^{(1)}( \btheta, s_{t, \theta})|^{-1} = g(t) \{1 + o(\delta^{''})\}
+		\end{equation}
+where $T^{(1)}( \btheta, S_n) = (\partial / \partial S_n)  T(\btheta, S_n)$. 
+		
+%Now, consider the joint distribution of the $(\btheta,S_n)$ pairs procured as a result of steps 1 and 2 of Algorithm \ref{alg:rejACC}. For clarity, denote these pairs with primes so that
+For $\theta' \sim Q_{\veps}(\cdot \mid s_{obs})$ and corresponding summary $S_n'$, 
+%	\begin{eqnarray}
+%	\btheta' &\sim& r_n(\theta) \notag \\
+%	S_{n}'\mid \btheta' &\sim& f_{n}(s \mid \theta'). \notag 
+%	\end{eqnarray} 
+%Then, 
+the joint density of $(\btheta', S_{n}')$  conditional on the observed data, is
+	\begin{align*}
+	(\btheta', S_{n}') | S_n=  s_{\rm obs} \propto  r_{n}(\btheta) f_n( S_n \mid\btheta) K_{\veps}(S_n - s_{\rm obs}).
+	\end{align*}
+Let $T' = T(\btheta', S_{n}')$. With a variable transformation from $(\btheta', S_{n}')$ to $(\btheta', T')$, the joint density of $(\btheta', T')$, conditional on the observed data, is
+	\begin{align*}
+	(\btheta', T') |  s_{\rm obs} & \propto  r_{n}(\btheta) \left[ f_n(s_{t,\btheta}\mid\btheta) |T^{(1)}( \btheta, s_{t, \btheta})|^{-1} \right] \times\\ 
+	&\qquad\qquad K_{\veps}(s_{t, \btheta}-s_{\rm obs})\\ 
+	& =   r_{n}(\btheta) \left[ g(t)  \{1 + o(\delta^{''})\} \right] K_{\veps}(s_{t, \btheta}-s_{\rm obs}),
+	\end{align*}
+where $s_{t, \btheta}$ is the solution of  $t = T( \btheta, S_n)$ %for any $t$ 
+and the equivalence holds by (\ref{eq:pivotTransformation}). Integrating over the parameter space yields
+	\begin{align*}
+	T' | S_n= s_{\rm obs}  &\propto \left[ g(t)  \{1 + o(\delta^{''})\} \right] \int_{\cal{P}}  r_{n}(\theta)  K_{\veps}(s_{t, \theta}-s_{\rm obs}) d \btheta \\
+	&\propto g(t) \{1 + o(\delta^{''})\},
+	\end{align*} 
+provided (\ref{eq:req}) holds. 
+		
+%%%%Double check ?
+Now, consider $W( \btheta,S_n) = T( \theta, S_n)$ as a function of the random sample given some fixed, unknown value of $\btheta$, by (\ref{eq:AW})
+	\[ \text{pr}\{W(\btheta, S_{n}) \in A \mid \btheta=  \btheta_0\} =  \int_{t \in A} g(t) d t   \{1 + o(\delta)\} .\]
+If we consider $V( \btheta,S_n) = T( \theta, S_n)$ and the joint density of $(\theta', S_n')$ pairs %as a function of the randomly generated $(\btheta', S_n')$ pairs resulting from Algorithm \ref{alg:rejACC}, conditioned on the observed data, 
+then
+	\[ \text{pr}^*\{V(\btheta, S_n) \in A \mid  S_n= s_{\rm obs} \} = \int_{t \in A} g(t)  dt \{1 + o(\delta^{''})\}  \]
+thus satisfying Condition \ref{cond:ACC_interval}. Furthermore, by Lemma \ref{main1}, $\Gamma_{1-\alpha}(s_{\rm obs})$ in equation (\ref{eq:AB}) is a $(1-\alpha)100\%$ confidence region for $\btheta$. 
+\end{proof}
+	
+	
+\section{Corollary 1} 
+\begin{proof} By Theorem \ref{thm:pivot}, it suffices to show that equation \ref{eq:apivot} is free of $t$ in each case.
+
+\noindent {\it (a)} Suppose %$\hat{\mu}_{S} = \hat{\mu}(S_n)$ has density 
+$S_n \sim g_1(S_n - \mu)$. Then $T_1 = T_1(\mu, S_n) = S_n - \mu \sim g_1(t)$ is a pivot for $S_n$. For any $(t, \mu)$ pair $s_{t,\mu}=t + \mu$.  With a change of variables $u = t + \mu - s_{obs}$ and with $r_n(\mu)\propto 1$ we have% denote the solution to $t = \hat{\mu}(s) - \mu$, given some $\mu$ and $t$. Consider, 
+	\begin{align*}
+	\int_{\cal{P}} r_n(\mu)K_{\veps}(s_{t, \mu} - s_{\rm obs}) d\mu =  \int_{-\infty}^{\infty} K_{\veps}(u) du,
+	\end{align*}
+which is free of $t$.
+%if the assumption that 
+%%% double check 
+%With a change of variables, the above is equal to 
+%\[ \int_{-\infty}^{\infty} K_{\veps}(u - s_{\rm obs}) du, \] and thus is free of $t$, provided $r_n(\mu) \propto 1$. % is symmetric holds, then, since $K_{\veps}$ is also symmetric, the above is free of $t$, satisfying requirement (\ref{eq:req}) for Part 1.
+	
+\noindent {\it (b)} Suppose $S_n  \sim (1/\sigma) g_2(S_n / \sigma)$. Then $T = T(\sigma, S_n ) = S_n  / \sigma \sim g_2(t)$ is a pivot. For any $(t, \sigma)$ pair $s_{t,\sigma}= t\sigma$. With $r_n(\sigma) \propto 1/\sigma$ and with a change of variables $u = t\sigma - s_{obs}$, we have 
+	\begin{align*}
+	\int_{\cal{P}} r_n(\sigma) K_{\veps}(s_{t,\sigma} - s_{\rm obs}) d\sigma &=
+	\int_{0}^{\infty} \frac{1}{\sigma} K_{\veps}(t\sigma - s_{\rm obs}) d\sigma \\
+	&= \int_{0}^{\infty} \frac{1}{(u + s_{obs})/t}K_{\veps}(u) \frac{1}{t} du 
+	\end{align*}
+	which is free of $t$.
+%where the last equality is due to a transformation of variables with $u = \sigma t$. 
+%If the assumption that $r_n(\sigma) \propto 1/\sigma$ holds, then the above is free of $t$, satisfying requirement (\ref{eq:req}) for Part 2.
+	
+\noindent {\it (c)} Since we have already proven parts (a) and (b), part (c) follows provided we select $r_{n}(\theta) \propto 1/\sigma$ for $\theta = (\mu, \sigma)$. 
+	
+%%% Double check these details	
+Finally, to prove the last statement of the corollary first note that the function $ H_1(S_n, x) = \int_{-\infty}^{x}g_1(S_n-u)du $ is a CD for $\mu$ when $S_n \sim g_1(S_n - \mu)$ because, for a given $S$, $H_1(S, x) $ is a distribution function on the parameter space $(-\infty, \infty)$ and given $x = \mu_0$, $H_1(S, x) \sim U(0,1)$. Similarly, the function $H_2(S^2,x) = 1 - \int_{0}^{x} g_2(S/u)du$ is a CD for $\sigma^2$ when $S_n \sim (1/\sigma)g_2(S_n/\sigma)$.  
+\end{proof}
+
+\section{Remark on degeneracy of acceptance rate}\label{sec:degen_of_AR}
+A natural question is whether Theorem \ref{thm:ACC_limit_small_bandwidth} holds for a larger $\veps_n$. We claim that the answer is negative, using the following basic normal mean model as a counterexample.
+
+Consider a univariate Gaussian model with mean $\theta$ and unit variance, and observations that are IID from the model with $\theta=\theta_0$. Let $r_{n}(\theta)$ be a normal density with mean $\mu_n$ and variance $b_n^{-2}$, where $\mu_n$ and $b_n$ are constant sequences satisfying $b_n(\mu_n-\theta_0)=O(1)$ and $b_n=o(\sqrt{n})$ as $n\rightarrow\infty$, and let $S_n$ be the sample mean. One can verify that $r_{n}$ and $S_n$ satisfy the conditions of Theorem \ref{thm:ACC_limit_small_bandwidth}. The Gaussian kernel with variance $\veps_n^2$ is used for the acceptance/rejection. Then the density of a linear transformation of $\theta \sim Q_{\veps}(\theta \mid s_{\rm obs})$ is Gaussian with a closed form  
+\begin{align*}
+\sqrt{n}(\theta-\hat{\theta}_{S}) \mid s_{obs} & \sim N(0,n\sigma_{\veps}^{2})
+\end{align*}
+where $\sigma_{\veps}^{2}=\frac{b_{n}^{-2}\Delta_{n}}{1+\Delta_{n}}$ and $\Delta_{n}=b_{n}^{2}(n^{-1}+\veps^{2})$. Also,
+\begin{align*}
+&\sqrt{n}(\hat{\theta}_{S}-\theta) \mid \theta_0  = \qquad \qquad \qquad \qquad \qquad \qquad \\
+&\qquad \qquad \frac{1}{1+\Delta_{n}}\sqrt{n}(s_{obs}-\theta)+\frac{\sqrt{n}b_{n}^{-1}\Delta_{n}}{1+\Delta_{n}}b_{n}(\mu_{n}-\theta).
+\end{align*}
+By algebra, the expectation of $\sqrt{n}(\hat{\theta}_{S}-\theta) \mid \theta_0$ is $o(1)$ only when $\veps_n=o(b_{n}^{-1/2}n^{-1/4})$, and the variance is $n\sigma_{\veps}^2+o(1)$ only when $\veps_n=o(n^{-1/2})$ or $\veps_n^{-1}=o(b_n^2n^{-1/2})$. Since $b_n=o(\sqrt{n})$, both $\veps_n=o(b_{n}^{-1/2}n^{-1/4})$ and $\veps_n^{-1}=o(b_n^2n^{-1/2})$ can not hold simultaneously. Therefore Condition \ref{cond:ACC_interval} is satisfied only if $\veps_n=o(n^{-1/2})$.
+	
+\section{Theorems 2 and 3} \label{Appendix:Thm2and3}
+The proof for Theorem 2 requires establishing Lemmas 1--5 which are given in the Supplementary Material. 
+Theorem 3 is proved after establishing Lemmas 6--7 given in the Supplementary Material. 
+Below, we present the additional conditions from \cite{Li2017}, necessary for these lemmas. The proofs of these technical lemmas are contained in the Supplementary Material. It is helpful to have a copy of both \cite{Li2016} and \cite{Li2017} (and their supplementary material) on hand as these proofs are rely on results from these two publications. 
+
+
+\subsection{Notation}\label{Appendix_notation}
+%\subsection{Additional conditions and notation}\label{Appendix_notation}
+%\subsubsection{Notation following Condition \ref{sum_conv}}
+For the sequence $a_n$ in Condition \ref{sum_conv}, let $a_{n,\veps}=a_{n}$ if $\lim_{n\rightarrow\infty}a_{n}\veps_{n}<\infty$ and $a_{n,\veps}=\veps_{n}^{-1}$ otherwise. Additionally, let  $\ensuremath{c_{\veps}=\lim_{n\rightarrow\infty}a_{n}\veps_{n}}$. Both $\{a_n\}$ and $c_{\veps}$ characterize how $\veps_{n}$ decreases relative to the convergence rate, $a_{n}$, of $S_{n}$ . 
+
+Let $\ftil_{n}(\bs\mid\btheta)=N\{\bs;\bs(\btheta),A(\btheta)/a_{n}^{2}\}$ be the asymptotic distribution of the summary statistic from Condition \ref{sum_conv}. Define the standardized random variables $W_{n}(S_{n})=a_{n}A(\theta)^{-1/2}\{S_{n}-s(\theta)\}$ and $W_{\rm obs}=a_{n}A(\theta)^{-1/2}\{s_{\rm obs}-s(\theta)\}$. Finally, let $f_{W_{n}}(w\mid\theta)$ and $\ftil_{W_{n}}(w\mid\theta)$ be the density for $W_{n}(S_{n})$ when $S_{n}\sim f_{n}(\cdot\mid\theta)$ and $\ftil_n(\cdot\mid\theta),$ respectively. 
+
+%\ST{Let $I(\theta)\triangleq\left\{ \frac{\partial}{\partial\theta}s(\theta)\right\} ^{T}A^{-1}(\theta)\left\{ \frac{\partial}{\partial\theta}s(\theta)\right\} $}
+
+\subsection{Conditions}
+%\subsubsection{Kernel condition}	
+\begin{condition} \label{kernel_prop}
+The kernel in Algorithm \ref{alg:rejACC} satisfies 
+
+\noindent (i) $\int vK_{\veps}(v)dv=0$; 
+
+\noindent (ii) $\prod_{k=1}^{l}v_{i_{k}}K_{\veps}(v)dv<\infty$
+		for any coordinates $(v_{i_{1}},\dots,v_{i_{l}})$ of $v$ and $l\leq p+6$;
+		
+\noindent (iii) $K_{\veps}(v)\propto K_{\veps}(\|v\|_{\Lambda}^{2})$ where $\|v\|_{\Lambda}^{2}=v^{T}\Lambda v$
+		and $\Lambda$ is a positive-definite matrix, and $K(v)$ is a decreasing
+		function of $\|v\|_{\Lambda}$; 
+		
+		\noindent (iv) $K_{\veps}(v)=O(\exp\{-c_{1}\|v\|^{\alpha_{1}}\})$
+		for some $\alpha_{1}>0$ and $c_{1}>0$ as $\|v\|\rightarrow\infty$. 
+\end{condition}
+
+%\subsubsection{Remaining conditions}	
+	
+	\begin{condition} \label{sum_approx}
+		{\it There exists $\alpha_{n}$ satisfying $\alpha_{n}/a_{n}^{2/5}\rightarrow\infty$
+		and a density $r_{max}(w)$ satisfying Condition \ref{kernel_prop}, where $K_{\veps}(v)$
+		is replaced with $r_{max}(w)$, such that 
+		$$\sup_{\theta\in {\cal P}_{\delta} }\alpha_{n}\mid f_{W_{n}}(w\mid\theta)-\ftil_{W_{n}}(w\mid\theta)\mid\leq c_{3}r_{max}(w)$$
+		for some positive constant $c_{3}$. }
+	\end{condition}
+	
+	\begin{condition} \label{sum_approx_tail}
+		{\it  For some positive constants $c_{2}$
+		and $\alpha_{2}$,
+		%The following statements hold: 
+		
+%\noindent (i) $r_{max}(w)$ satisfies
+%		Condition \ref{kernel_prop} part (iv);  
+
+%\noindent (ii) 
+$\sup_{\theta\in {\cal P}_{\delta} ^{C}}\ftil_{W_{n}}(w\mid\theta)=O(e^{-c_{2}\|w\|^{\alpha_{2}}})$
+		as $\|w\|\rightarrow\infty$. }
+	\end{condition}
+	
+	\begin{condition} \label{cond:likelihood_moments}
+		{\it The first two moments, $\int_{{\cal S} }s\ftil_{n}(s\mid\theta)ds$
+		and $\int_{\mathbb{R}^d}s^{T}s\ftil_{n}(s\mid\theta)ds$, exist. }
+	\end{condition}
+	
