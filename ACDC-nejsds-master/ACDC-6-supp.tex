@@ -310,11 +310,12 @@ if $c_{\veps}=\infty$.
 	These results generalize Lemma A3(c) and Lemma A5(c) in ~\cite{Li2017} in the sense of permitting use of a data-dependent $r_n(\theta)$, however here we are only considering $\veps_n = o(a_n^{-1/2})$ in contrast to Lemma A5(c) in ~\cite{Li2017} which assumes the less stringent condition that $\veps_n = o(a_n^{-3/5})$.
 	
 	With the transformation $t=t(\theta)$, by Lemma 2, if $\veps_{n}=o(a_{n}^{-1/2})$,
-	\begin{eqnarray}
-	\begin{cases}
-	\tilde{\theta}_{\veps}=\theta_{0}+a_{n,\veps}^{-1}\tilde{q}_{B_{\delta},t\nu}(t)/\tilde{q}_{B_{\delta},t\nu}(1)=\theta_{0}+a_{n,\veps}^{-1}g_{B_{\delta},r}(t)/g_{B_{\delta},r}(1)+o_{p}(a_{n}^{-1}),\\
-	\tilde{\theta}_{\veps}^{*}=\theta_{0}+a_{n,\veps}^{-1}\tilde{q}_{B_{\delta},t\nu}(t)/\tilde{q}_{B_{\delta},t\nu}(1)-\veps_{n}\beta_{\veps}\tilde{q}_{B_{\delta},t\nu}(\nu)/\tilde{q}_{B_{\delta},t\nu}(1)\\
-	\hspace{5mm} =\theta_{0}+a_{n,\veps}^{-1}g_{B_{\delta},r}(t)/g_{B_{\delta},r}(1)-\veps_{n}\beta_{\veps}E_{a_{n},r}(\nu)+o_{p}(a_{n}^{-1}),
+	\hspace{-2cm}\begin{eqnarray}
+	\hspace{-2cm}\begin{cases}
+	\tilde{\theta}_{\veps}&=\theta_{0}+a_{n,\veps}^{-1}\tilde{q}_{B_{\delta},t\nu}(t)/\tilde{q}_{B_{\delta},t\nu}(1) \\
+	&=\theta_{0}+a_{n,\veps}^{-1}g_{B_{\delta},r}(t)/g_{B_{\delta},r}(1)+o_{p}(a_{n}^{-1}),\\
+	\tilde{\theta}_{\veps}^{*}&=\theta_{0}+a_{n,\veps}^{-1}\tilde{q}_{B_{\delta},t\nu}(t)/\tilde{q}_{B_{\delta},t\nu}(1)-\veps_{n}\beta_{\veps}\tilde{q}_{B_{\delta},t\nu}(\nu)/\tilde{q}_{B_{\delta},t\nu}(1)\\
+	&=\theta_{0}+a_{n,\veps}^{-1}g_{B_{\delta},r}(t)/g_{B_{\delta},r}(1)-\veps_{n}\beta_{\veps}E_{a_{n},r}(\nu)+o_{p}(a_{n}^{-1}),
 	\end{cases}\label{eq4}
 	\end{eqnarray}
 	where the remainder term comes from the fact that $(a_{n,\veps}^{-1}+\veps_{n})\left\{ O_{p}(a_{n,\veps}^{-1})+O_{p}(a_{n}^{2}\veps_{n}^{4})\right\} =o_{p}(a_{n}^{-1})$.
@@ -324,21 +325,27 @@ if $c_{\veps}=\infty$.
 	then 
 	\begin{align*}
 	g_{B_{\delta},r}(t\nu^{k_{2}}) & =\int_{\mathbb{R}^{d}}\int_{t(B_{\delta})}\{t'+\psi(\nu)\}\nu^{k_{2}}\gamma_{n}(t)g_{n}(t,\nu)\,dtd\nu\\
-	& =\int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n,r}(\nu)\,d\nu+\int_{\mathbb{R}^{d}}\int_{t(B_{\delta})}t'\nu^{k_{2}}\gamma_{n}(t)g_{n}(t,\nu)\,dtd\nu.
+	& =\int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n,r}(\nu)\,d\nu+ \\
+	&\quad\quad \int_{\mathbb{R}^{d}}\int_{t(B_{\delta})}t'\nu^{k_{2}}\gamma_{n}(t)g_{n}(t,\nu)\,dtd\nu.
 	\end{align*}
 	By matrix algebra, it is straightforward to show that $g_{n}(t,v)=N\{t;\psi(v),k_{n}^{-2}I(\theta_{0})^{-1}\}G_{n}(v)$.
 	Then with the transformation $t'$, we have
 	\begin{align*}
-	& g_{B_{\delta},r}(t\nu^{k_{2}})-\int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n,r}(\nu)\,d\nu\\
-	= & \int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}t'\nu^{k_{2}}\gamma_{n}\{\psi(\nu)+t'\}N\left\{ t';0,k_{n}^{-2}I(\theta_{0})^{-1}\right\} G_{n}(\nu)\,dt'd\nu.
+	&\hspace{-1cm} g_{B_{\delta},r}(t\nu^{k_{2}})-\int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n,r}(\nu)\,d\nu\\
+	\hspace{-2cm}= & \int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}\Big[t'\nu^{k_{2}}\gamma_{n}\{\psi(\nu)+t'\} \times \\
+	&\hspace{-1mm} N\left\{ t';0,k_{n}^{-2}I(\theta_{0})^{-1}\right\} G_{n}(\nu)\,dt'd\nu \Big].
 	\end{align*}
 	By applying the Taylor expansion on $\gamma_{n}\{\psi(\nu)+t'\}$,
 	the right hand side of the above equation is equal to 
 	\begin{eqnarray}
-	&  & \int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}t'N\{t';0,k_{n}^{-2}I(\theta_{0})^{-1}\}\,dt'\cdot\gamma_{n}\{\psi(\nu)\}\nu^{k_{2}}G_{n}(\nu)\,d\nu\nonumber \\
-	&  & +\int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}t'{}^{2}D_{t}\gamma_{n}\{\psi(\nu)+e_{t}\}N\{t';0,k_{n}^{-2}I(\theta_{0})^{-1}\}\,dt'\cdot\nu^{k_{2}}G_{n}(\nu)d\nu\nonumber \\
-	& = & k_{n}^{-1}\int_{\mathbb{R}^{d}}\int_{Q_{v}}t''N\{t'';0,I(\theta_{0})^{-1}\}\,dt''\cdot\gamma_{n}\{\psi(\nu)\}\nu^{k_{2}}G_{n}(\nu)\,d\nu\nonumber \\
-	&  & +k_{n}^{-2}\int_{\mathbb{R}^{d}}\int_{Q_{v}}t''^{2}D_{t}\gamma_{n}\{\psi(\nu)+e_{t}\}N\{t'';0,I(\theta_{0})^{-1}\}\,dt''\cdot\nu^{k_{2}}G_{n}(\nu)\,d\nu,\label{eq5}
+	&\hspace{-2cm} \Big[\int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}t'N\{t';0,k_{n}^{-2}I(\theta_{0})^{-1}\}\,dt' \Big] \times \nonumber\\
+	&\hspace{-4cm}\gamma_{n}\{\psi(\nu)\}\nu^{k_{2}}G_{n}(\nu)\,d\nu \nonumber \\
+	&\hspace{-2cm}+ \Big[ \int_{\mathbb{R}^{d}}\int_{t(B_{\delta})-\psi(\nu)}t'{}^{2}D_{t}\gamma_{n}\{\psi(\nu)+e_{t}\} \times \nonumber\\
+	&N\{t';0,k_{n}^{-2}I(\theta_{0})^{-1}\}\,dt'\cdot\nu^{k_{2}}G_{n}(\nu)d\nu \Big] \nonumber \\
+	&\hspace{-2cm}=  \label{eq5} \\
+	&\Big[k_{n}^{-1}\int_{\mathbb{R}^{d}}\int_{Q_{v}}t''N\{t'';0,I(\theta_{0})^{-1}\}\,dt'' \gamma_{n}\{\psi(\nu)\}\nu^{k_{2}}G_{n}(\nu)\,d\nu\Big] \nonumber \\
+	&+ k_{n}^{-2}\int_{\mathbb{R}^{d}}\int_{Q_{v}}\Big[ t''^{2}D_{t}\gamma_{n}\{\psi(\nu)+e_{t}\}N\{t'';0,I(\theta_{0})^{-1}\}\,dt''\times \nonumber \\
+	&\nu^{k_{2}}G_{n}(\nu)\,d\nu \Big], \nonumber 
 	\end{eqnarray}
 	where $Q_{v}=\left\{ a_{n}(\theta-\theta_{0})-k_{n}\psi(\nu)\mid\theta\in B_{\delta}\right\} $
 	and $t''=k_{n}t'$. 
@@ -359,8 +366,9 @@ if $c_{\veps}=\infty$.
 	\end{align}
 	By algebra, $k_{n}=a_{n,\veps}^{-1}a_{n}$, and 
 	\begin{eqnarray}
-	&  & \int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n}(\nu)d\nu\nonumber \\
-	& = & a_{n,\veps}\beta_{0}\{a_{n}^{-1}A(\theta_{0})^{1/2}W_{\rm obs}\int_{\mathbb{R}^{d}}\nu^{k_{2}}G_{n,r}(\nu)\,d\nu+\veps_{n}\int_{\mathbb{R}^{d}}\nu^{k_{2}+1}G_{n,r}(\nu)\,d\nu\}.\label{eq7}
+	\int_{\mathbb{R}^{d}}\psi(\nu)\nu^{k_{2}}G_{n}(\nu)d\nu = \nonumber \\
+	&\hspace{-3cm}a_{n,\veps}\beta_{0}\{a_{n}^{-1}A(\theta_{0})^{1/2}W_{\rm obs}\int_{\mathbb{R}^{d}}\nu^{k_{2}}G_{n,r}(\nu)\,d\nu+ \nonumber \\
+	&\hspace{-3cm}\veps_{n}\int_{\mathbb{R}^{d}}\nu^{k_{2}+1}G_{n,r}(\nu)\,d\nu\}.\label{eq7}
 	\end{eqnarray}
 	Then ($i$) and ($ii$) in the Lemma holds by plugging the expansion
 	of $g_{B_{\delta},r}(t)$ into \eqref{eq4}.
@@ -401,7 +409,7 @@ Assume Condition \ref{par_true}, \ref{initial_upper}, \ref{sum_conv}--\ref{sum_a
 		and $\tilde{Q}_{\veps}(\theta\in B_{\delta}^{c}\mid s_{\rm obs})$ are $o_{p}(1)$; 
 		\item[(ii)] There exists some $\delta<\delta_{0}$ such that 
 		\[
-		\sup_{A\in\mathfrak{B}^{p}}|Q_{\veps}(\theta\in A\cap B_{\delta}\mid s_{\rm obs})-\tilde{Q}_{\veps}(\theta\in A\cap B_{\delta}\mid s_{\rm obs})|=o_{p}(1);
+		\hspace{-1cm}\sup_{A\in\mathfrak{B}^{p}}|Q_{\veps}(\theta\in A\cap B_{\delta}\mid s_{\rm obs})-\tilde{Q}_{\veps}(\theta\in A\cap B_{\delta}\mid s_{\rm obs})|=o_{p}(1);
 		\]
 		\item[(iii)] $a_{n,\veps}(\theta_{\veps}-\tilde{\theta}_{\veps})=o_{p}(1)$ . 
 	\end{enumerate}\end{lemma}
@@ -433,9 +441,10 @@ Assume Condition \ref{par_true}--\ref{cond:likelihood_moments}. If $\veps_{n}=o_
 	This generalizes Lemma A4 in ~\cite{Li2017} by replacing $\pi(\theta_{0}+a_{n,\veps}^{-1}t)$
 	therein with $\gamma_{n}(t)$. By Condition \ref{initial_upper} and the arguments in the proof
 	of Lemma A4 in ~\cite{Li2017}, it can be shown that 
-	\[
-	\frac{q_{\mathbb{R}^{p}}\{(\theta-\theta_{0})^{k_{1}}(s-s_{\rm obs})^{k_{2}}\}}{q_{\mathbb{R}^{p}}(1)}=a_{n,\veps}^{-k_{1}}\veps_{n}^{-k_{2}}\left\{ \frac{\tilde{q}_{B_{\delta},tv}(t^{k_{1}}\nu^{k_{2}})}{\tilde{q}_{B_{\delta},tv}(1)}+O_{p}(\alpha_{n}^{-1})\right\} .
-	\]
+	\begin{eqnarray*}
+	&\hspace{-3cm}\frac{q_{\mathbb{R}^{p}}\{(\theta-\theta_{0})^{k_{1}}(s-s_{\rm obs})^{k_{2}}\}}{q_{\mathbb{R}^{p}}(1)}\\
+	&\quad=a_{n,\veps}^{-k_{1}}\veps_{n}^{-k_{2}}\left\{ \frac{\tilde{q}_{B_{\delta},tv}(t^{k_{1}}\nu^{k_{2}})}{\tilde{q}_{B_{\delta},tv}(1)}+O_{p}(\alpha_{n}^{-1})\right\} .
+	\end{eqnarray*}
 	Then by Lemma 2 $(iii)$, the right hand side of the above is equal
 	to 
 	\[
