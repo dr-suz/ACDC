@@ -162,10 +162,7 @@ p2 <- ggplot() +
 grid.arrange(p1,p2,ncol=2)
 #dev.off()
 
-## possible issue: 5/8/23 - something is wrong with first image (median = Sn), density of ABC_params should not be more narrow that density of post_samps
-## fixed 5/8/23: using adjust=5 (for both median curves) 
-names(ABC_params[[1]])
-names(post_samps[[1]])
+
 
 
 
