@@ -1,17 +1,13 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 MAY 2023 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 MAY 2023 13:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**0Main-Feb2022.tex
-(./0Main-Feb2022.tex
+**ACDC_main.tex
+(./ACDC_main.tex
 LaTeX2e <2018-12-01>
-(./nejsds_ST.cls
-
-LaTeX Warning: You have requested document class `nejsds_ST',
-               but the document class provides `nejsds'.
-
-Document Class: nejsds 2021/12/08 v1.06, driver class for NEJSDS journal
+(./nejsds.cls
+Document Class: nejsds 2023/02/23 v1.13, driver class for NEJSDS journal
 (/usr/local/texlive/2019/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count80
@@ -382,6 +378,9 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
+(/usr/local/texlive/2019/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/sttools/stfloats.sty
 Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip sett
 ings
@@ -390,14 +389,33 @@ ings
 )
 \table@head=\toks37
 
-(./caption.sty
-Package: caption 1995/04/05 v1.4b caption package (HS)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
 
-Package: caption v1.4b <1995/04/05> (Harald Sommerfeldt)
-\captionmargin=\skip56
-\as@captionbox=\box39
-\as@captionwidth=\skip57
-         `rotating' package detected
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen124
+\captionmargin@=\dimen125
+\captionwidth=\dimen126
+\caption@tempdima=\dimen127
+\caption@indent=\dimen128
+\caption@parindent=\dimen129
+\caption@hangindent=\dimen130
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
+p \normalsize \itshape \sffamily \centering #1.\enskip #2\par \vskip \belowcapt
+ionskip .
+\c@caption@flags=\count118
+\c@ContinuedFloat=\count119
+Package caption Info: rotating package is loaded.
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
 
@@ -450,16 +468,16 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen124
-\Hy@linkcounter=\count118
-\Hy@pagecounter=\count119
+\@linkdim=\dimen131
+\Hy@linkcounter=\count120
+\Hy@pagecounter=\count121
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count120
+\Hy@SavedSpaceFactor=\count122
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -472,17 +490,17 @@ Package hyperref Info: Backreferencing OFF on input line 4539.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4772.
 LaTeX Info: Redefining \href on input line 5036.
-\c@Hy@tempcnt=\count121
+\c@Hy@tempcnt=\count123
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5125.
-\XeTeXLinkMargin=\dimen125
-\Fld@menulength=\count122
-\Field@Width=\dimen126
-\Fld@charsize=\dimen127
+\XeTeXLinkMargin=\dimen132
+\Fld@menulength=\count124
+\Field@Width=\dimen133
+\Fld@charsize=\dimen134
 Package hyperref Info: Hyper figures OFF on input line 6380.
 Package hyperref Info: Link nesting OFF on input line 6385.
 Package hyperref Info: Hyper index ON on input line 6388.
@@ -492,27 +510,27 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6405.
 Package hyperref Info: PDF/A mode OFF on input line 6410.
 LaTeX Info: Redefining \ref on input line 6450.
 LaTeX Info: Redefining \pageref on input line 6454.
-\Hy@abspage=\count123
-\c@Item=\count124
-\c@Hfootnote=\count125
+\Hy@abspage=\count125
+\c@Item=\count126
+\c@Hfootnote=\count127
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
-\Fld@listcount=\count126
-\c@bookmark@seq@number=\count127
+\Fld@listcount=\count128
+\c@bookmark@seq@number=\count129
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip58
+\Hy@SectionHShift=\skip56
 )
-After Package Info: Apply commands to hyperref on input line 2577
-Package hyperref Info: Option `colorlinks' set `true' on input line 2595.
-Package hyperref Info: Option `linktocpage' set `true' on input line 2595.
+After Package Info: Apply commands to hyperref on input line 2609
+Package hyperref Info: Option `colorlinks' set `true' on input line 2627.
+Package hyperref Info: Option `linktocpage' set `true' on input line 2627.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/breakurl/breakurl.sty
 Package: breakurl 2013/04/10 v1.40 Breakable hyperref URLs
@@ -525,7 +543,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks38
 \XKV@tempa@toks=\toks39
 )
-\XKV@depth=\count128
+\XKV@depth=\count130
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 
@@ -540,286 +558,18 @@ Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
-\multirow@colwidth=\skip59
-\multirow@cntb=\count129
-\multirow@dima=\skip60
-\bigstrutjot=\dimen128
+\multirow@colwidth=\skip57
+\multirow@cntb=\count131
+\multirow@dima=\skip58
+\bigstrutjot=\dimen135
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count130
-\algocf@hangindent=\skip61
+\c@AlgoLine=\count132
+\algocf@hangindent=\skip59
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count131
+\c@checkoddpage=\count133
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/relsize/relsize.sty
-Package: relsize 2013/03/29 ver 4.1
-)
-\skiptotal=\skip62
-\skiplinenumber=\skip63
-\skiprule=\skip64
-\skiphlne=\skip65
-\skiptext=\skip66
-\skiplength=\skip67
-\algomargin=\skip68
-\skipalgocfslide=\skip69
-\algowidth=\dimen129
-\inoutsize=\dimen130
-\inoutindent=\dimen131
-\interspacetitleruled=\dimen132
-\interspacealgoruled=\dimen133
-\interspacetitleboxruled=\dimen134
-\algocf@ruledwidth=\skip70
-\algocf@inoutbox=\box40
-\algocf@inputbox=\box41
-\AlCapSkip=\skip71
-\AlCapHSkip=\skip72
-\algoskipindent=\skip73
-\algocf@nlbox=\box42
-\algocf@hangingbox=\box43
-\algocf@untilbox=\box44
-\algocf@skipuntil=\skip74
-\algocf@capbox=\box45
-\algocf@lcaptionbox=\skip75
-\algoheightruledefault=\skip76
-\algoheightrule=\skip77
-\algotitleheightruledefault=\skip78
-\algotitleheightrule=\skip79
-\c@algocfline=\count132
-\c@algocfproc=\count133
-\c@algocf=\count134
-\algocf@algoframe=\box46
-\algocf@algobox=\box47
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/eucal.sty
-Package: eucal 2009/06/22 v3.00 Euler Script fonts
-LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
-(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/times.sty
-Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf.sty
-Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-)
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-)))
-(./subfig.sty
-Style Option: `subfig' v1.2 <28 Jan 92> (M.O.)
-\c@subfigure=\count135
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen135
-\WF@size=\dimen136
-\c@WF@wrappedlines=\count136
-\WF@box=\box48
-\WF@everypar=\toks41
-Package: wrapfig 2003/01/31  v 3.6
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/hypcap.sty
-Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 147.
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/subfiles/subfiles.sty
-Package: subfiles 2018/07/31 Federico Garcia, Gernot Salzer
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks42
-\verbatim@line=\toks43
-\verbatim@in@stream=\read1
-))
-(./Symbols_pream.tex)
-\c@thm=\count137
-\c@remark=\count138
-\c@lemma=\count139
-\c@cor=\count140
-\c@myex=\count141
-\c@condition=\count142
-\mybox=\box49
-\mysim=\box50
-
-No file 0Main-Feb2022.aux.
-\openout1 = `0Main-Feb2022.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 77.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 77.
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 77.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
-(/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count143
-\scratchdimen=\dimen137
-\scratchbox=\box51
-\nofMPsegments=\count144
-\nofMParguments=\count145
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count146
-\MPscratchDim=\dimen138
-\MPnumerator=\count147
-\makeMPintoPDFobject=\count148
-\everyMPtoPDFconversion=\toks45
-)
-Package lastpage Info: Please have a look at the pageslts package at
-(lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 77.
-\AtBeginShipoutBox=\box52
-Package hyperref Info: Link coloring ON on input line 77.
- (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
-)
-\c@section@level=\count149
-)
-LaTeX Info: Redefining \ref on input line 77.
-LaTeX Info: Redefining \pageref on input line 77.
-LaTeX Info: Redefining \nameref on input line 77.
-\@outlinefile=\write3
-\openout3 = `0Main-Feb2022.out'.
-
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 83.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ot1phv.fd
-File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-)
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 83.
-LaTeX Font Info:    Try loading font information for U+msa on input line 83.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 83.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 83.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 100.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/sc' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/sc' tried instead on input line 100.
-
-
-Package hyperref Warning: Ignoring empty anchor on input line 111.
-
-(./1introduction.tex
-
-Package natbib Warning: Citation `Xie2013' on page 1 undefined on input line 3.
-
-
-
-Package natbib Warning: Citation `Thornton2022' on page 1 undefined on input li
-ne 3.
-
-
-LaTeX Warning: Reference `alg:rejACC' on page 1 undefined on input line 30.
-
-
-LaTeX Warning: Reference `sec:largeSamp' on page 1 undefined on input line 41.
-
-[1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-
-Package natbib Warning: Citation `Xie2013' on page 2 undefined on input line 45
-.
-
-
-Package natbib Warning: Citation `Schweder2016' on page 2 undefined on input li
-ne 45.
-
-
-LaTeX Warning: Reference `alg:rejACC' on page 2 undefined on input line 53.
-
-
-LaTeX Warning: Reference `sec:largeSamp' on page 2 undefined on input line 54.
-
-
-Package natbib Warning: Citation `Csillery2010' on page 2 undefined on input li
-ne 61.
-
-
-Package natbib Warning: Citation `Cameron2012' on page 2 undefined on input lin
-e 61.
-
-
-Package natbib Warning: Citation `Peters2012' on page 2 undefined on input line
- 61.
-
-
-LaTeX Warning: Reference `alg:rejACC' on page 2 undefined on input line 63.
-
-
-LaTeX Warning: Reference `alg:rejACC' on page 2 undefined on input line 63.
-
-
-LaTeX Warning: Reference `alg:ISABC' on page 2 undefined on input line 64.
-
-
-LaTeX Warning: Reference `alg:rejACC' on page 2 undefined on input line 64.
-
-
-Package natbib Warning: Citation `Marin2011' on page 2 undefined on input line 
-89.
-
-
-Package natbib Warning: Citation `Beaumont2019' on page 2 undefined on input li
-ne 89.
-
-
-LaTeX Warning: Reference `alg:rejACC' on page 2 undefined on input line 91.
-
-
-LaTeX Warning: Reference `f
+(/usr/local/texlive/2019/
